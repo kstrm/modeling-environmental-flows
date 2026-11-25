@@ -39,7 +39,7 @@ project:
         - file: 02-finite-differences-and-odes/completed/05_ODESys-Method1-RK4.ipynb
         - file: 02-finite-differences-and-odes/completed/06_A-note-on-multidimensional-arrays.ipynb
         - file: 02-finite-differences-and-odes/completed/07_ODESys-Method2-RK4-array.ipynb
-        - file: 02-finite-differences-and-odes/completed/08_ODESys-Method3-odeint.ipynb
+        - file: 02-finite-differences-and-odes/completed/08_ODESys-Method3-solve_ivp.ipynb
         - file: 02-finite-differences-and-odes/exercises/euler-accuracy-stability/index.md
     - title: "03 ODE applications"
       children:

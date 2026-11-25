@@ -12,7 +12,7 @@ RK4 is applied to each equation, with every slope evaluation using the current e
 
 $$y^{1}_{i+1}=y^{1}_i+\frac{\Delta x}{6}\left(K^1_1+2K^1_2+2K^1_3+K^1_4\right),\qquad y^{2}_{i+1}=y^{2}_i+\frac{\Delta x}{6}\left(K^2_1+2K^2_2+2K^2_3+K^2_4\right).$$
 
-Companion notebooks: [Method 1 (explicit coefficients)](../completed/05_ODESys-Method1-RK4.ipynb), [A note on multidimensional arrays](../completed/06_A-note-on-multidimensional-arrays.ipynb), [Method 2 (arrays)](../completed/07_ODESys-Method2-RK4-array.ipynb) and [Method 3 (`odeint`)](../completed/08_ODESys-Method3-odeint.ipynb).
+Companion notebooks: [Method 1 (explicit coefficients)](../completed/05_ODESys-Method1-RK4.ipynb), [A note on multidimensional arrays](../completed/06_A-note-on-multidimensional-arrays.ipynb), [Method 2 (arrays)](../completed/07_ODESys-Method2-RK4-array.ipynb) and [Method 3 (`solve_ivp`)](../completed/08_ODESys-Method3-solve_ivp.ipynb).
 
 ## Example: predator–prey (rabbits and foxes)
 
@@ -61,15 +61,15 @@ for i in range(N - 1):
 
 In `x[a, b, c]` the first index selects which array (matrix), the next the row, and the last the position within the row. For an array of shape `(3, 4)` (3 sets of arrays of length 4), `x2[2, 0]` is the first value of the third row and `x2[1, :]` is the whole second row. For a `(3, 4, 5)` array, `x3[0, 0, 3]` is the 4th value in the first row of the first matrix, and `x3[1, :, -1]` is the last column of the second matrix. Useful properties are `.ndim`, `.shape` and `.size`. For paired $x,y$ values on a grid, use `np.mgrid` or `np.meshgrid`, e.g. to evaluate and contour a function of two variables. For more, see the *Python Data Science Handbook*, "The Basics of NumPy Arrays".
 
-## Method 3: SciPy's `odeint`
+## Method 3: SciPy's `solve_ivp`
 
-`scipy.integrate.odeint` solves the same system with a library routine. The function must take the state first and the independent variable second, and return the slopes; the order of arguments matters.
+`scipy.integrate.solve_ivp` solves the same system with a library routine. The function takes the independent variable first and the state second, exactly like the hand-written RK4 above, and returns the slopes.
 
 ```python
 import numpy as np
-from scipy.integrate import odeint
+from scipy.integrate import solve_ivp
 
-def df(ic, t):
+def df(t, ic):
     R, F = ic[0], ic[1]
     dR = a*R - b*R*F
     dF = -l*F + k*R*F
@@ -77,7 +77,9 @@ def df(ic, t):
 
 t = np.arange(0, 50, 0.01)
 ic = [R_0, F_0]
-y = odeint(df, ic, t)     # shape (len(t), 2): rows are times, columns are variables
+sol = solve_ivp(df, (0, 50), ic, t_eval=t)    # sol.t: times, sol.y: shape (2, len(t))
 ```
 
-Note the array layout is the transpose of Method 2: `y[:, 0]` is rabbits and `y[:, 1]` is foxes. Calling `ax.plot(t, y)` plots both columns at once.
+By default `solve_ivp` uses an adaptive Runge-Kutta method (`RK45`, Dormand-Prince): it chooses its own internal step size to meet the tolerances `rtol` and `atol`, and `t_eval` only controls where the solution is reported. Other methods are chosen with `method=` (`RK23`, `DOP853`, and the implicit `Radau` and `BDF` for stiff problems). The result object holds `sol.t`, `sol.y` and diagnostics such as `sol.nfev`, the number of function evaluations.
+
+Note the array layout is the same as Method 2: `sol.y[0]` is rabbits and `sol.y[1]` is foxes, one row per variable. Use `ax.plot(t, sol.y.T)` to plot both at once. The older `odeint` interface, which takes `f(y, t)` and returns the transpose, is still found in a lot of code, but new code should use `solve_ivp`.

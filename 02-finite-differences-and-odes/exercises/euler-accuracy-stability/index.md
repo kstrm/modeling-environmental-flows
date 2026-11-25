@@ -23,4 +23,4 @@ $$\frac{dy}{dt}=\lambda\,(y-\sin t)+\cos t.$$
 
 **3.** Convince yourself that accuracy depends not only on the time or space step but also on the shape of the function being computed. Demonstrate your reasoning in whatever way you see fit.
 
-**4.** Which scheme does SciPy's `odeint` use to solve a single ODE or a system of ODEs?
+**4.** Which scheme does SciPy's `solve_ivp` use by default to solve a single ODE or a system of ODEs? How does it choose its step size, and how does it compare with your fixed-step Runge-Kutta calculation?
