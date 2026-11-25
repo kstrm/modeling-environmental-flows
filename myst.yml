@@ -79,6 +79,8 @@ project:
         - file: 06-1d-unsteady-hydraulics/notes/03-morphodynamics-exner-equation.md
         - file: 06-1d-unsteady-hydraulics/completed/15_DamBreak_Lax_MacCormack.ipynb
         - file: 06-1d-unsteady-hydraulics/exercises/capstone-projects/index.md
+    - file: notation.md
+    - file: glossary.md
     - file: references.md
 site:
   template: book-theme

@@ -1,0 +1,51 @@
+name: Test notebooks
+
+# Re-runs every completed notebook from scratch with the pinned requirements,
+# so a change that breaks a notebook (or a library update) is caught early.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/completed/*.ipynb'
+      - 'requirements.txt'
+      - '.github/workflows/test-notebooks.yml'
+  pull_request:
+    paths:
+      - '**/completed/*.ipynb'
+      - 'requirements.txt'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  run-notebooks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+          cache: pip
+      - name: Install requirements
+        run: |
+          pip install -r requirements.txt nbconvert
+          python -m ipykernel install --user --name python3
+      - name: Execute completed notebooks
+        run: |
+          mkdir -p /tmp/executed
+          status=0
+          for nb in */completed/*.ipynb; do
+            dir=$(dirname "$nb"); name=$(basename "$nb")
+            echo "::group::$nb"
+            if (cd "$dir" && jupyter nbconvert --to notebook --execute \
+                --ExecutePreprocessor.timeout=300 \
+                --output-dir /tmp/executed --output "$name" "$name"); then
+              echo "ok: $nb"
+            else
+              echo "::error file=$nb::notebook failed to execute"
+              status=1
+            fi
+            echo "::endgroup::"
+          done
+          exit $status

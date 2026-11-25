@@ -23,10 +23,10 @@ Each module contains lesson notes, notebooks to work through, and exercises.
 | 02 Finite differences and ODEs | Euler method, accuracy, stability, Runge-Kutta, ODE systems |
 | 03 ODE applications | Mixing tanks, gradually varied flow, stratified flow and river plumes |
 | 04 Boundary value problems | Linear systems, Couette-Poiseuille flow, Blasius boundary layer |
-| 05 PDEs | Advection, diffusion, advection-diffusion, CFL stability, bed morphodynamics |
-| 06 1D unsteady hydraulics | Saint-Venant equations, the bridge to HEC-RAS |
+| 05 PDEs | Advection, diffusion, advection-diffusion, CFL stability, implicit schemes |
+| 06 1D unsteady hydraulics | Saint-Venant equations, explicit and implicit schemes, morphodynamics (Exner equation) |
 
-Modules on HEC-RAS (1D and 2D) and Delft3D (3D) will follow.
+Modules on HEC-RAS (1D and 2D) and Delft3D (3D) will follow. Two reference pages help along the way: [Notation](notation.md) and the [Glossary](glossary.md).
 
 ## Using the notebooks
 
