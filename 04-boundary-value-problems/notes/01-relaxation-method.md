@@ -109,6 +109,10 @@ r[0], r[N] = Ub, Ut
 u = linalg.solve(D2, -r)
 ```
 
+![Poiseuille-Couette velocity profiles for several pressure gradients](../figures/poiseuille-couette-profiles.svg)
+
+*Figure: Solutions of the Poiseuille–Couette problem with $U_b=0$. With $P=-G\,h^2/(2\mu U_t)$ the profile is $u/U_t=\zeta+P\zeta(1-\zeta)$, $\zeta=z/h$. $P=0$ is pure Couette flow (linear). Positive $P$ adds a pressure-driven bulge, and a sufficiently adverse pressure gradient ($P<-1$) reverses the flow near the stationary plate. The finite-difference solution of the matrix system agrees with this analytic profile to round-off.*
+
 ### Without loops
 
 The loop that fills `D2` can be replaced by assembling the matrix from diagonals, and several pressure gradients can be solved in one call because `linalg.solve` accepts a matrix of right-hand sides, one column per case. The matrix is factored once and reused for every column.

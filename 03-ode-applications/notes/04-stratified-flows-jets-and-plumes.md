@@ -39,6 +39,11 @@ $$\frac{\partial\rho}{\partial z}<0\Rightarrow\text{stable},\qquad\frac{\partial
 
 and horizontal density gradients $\partial\rho/\partial x$ of either sign cause motion.
 
+![Light over heavy is stable, heavy over light overturns, side-by-side fluids exchange](../figures/stratification-stability.svg)
+
+*Figure: Stability of two-fluid configurations after the barrier is removed. Dark blue is the denser fluid.*
+
+
 **Where are $\partial\rho/\partial z$ and $\partial\rho/\partial x$ important?**
 
 1. River discharge to a lake, reservoir or ocean: a buoyant surface layer with a vertical gradient and a horizontal gradient at the plume front.
@@ -113,6 +118,11 @@ Use the profile to get integral properties. For a planar jet of depth $h$ and wi
 $$Q=A\,u_{avg}=h\cdot2\int_0^\infty u_cf(\eta)\,dy=2hb\,\alpha_Qu_c,\qquad u_{avg}=\alpha_Qu_c,$$
 
 with $\alpha_Q=\sqrt\pi/2\approx0.886$ for a Gaussian profile. A **top-hat profile** instead has $u_c=u=u_{avg}$ across the width $2b$.
+
+![Planar jet structure and Gaussian versus top-hat velocity profile](../figures/jet-structure.svg)
+
+*Figure: Left: a planar jet leaves the nozzle, spreads linearly with distance after the zone of flow establishment, and entrains ambient fluid, so the centerline velocity decays. Right: the Gaussian profile and the top-hat profile of height $\alpha_Q=\sqrt\pi/2$ over $|\eta|<1$ carry the same discharge.*
+
 
 ## Check your understanding
 

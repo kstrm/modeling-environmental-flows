@@ -88,6 +88,10 @@ $$\nu+2r\le1.$$
 
 (This implies both $\nu\le1$ and $r\le\tfrac12$ but is stricter than either alone when both processes are present.)
 
+![Amplification factor magnitude against wavenumber for four schemes](../figures/amplification-factors.svg)
+
+*Figure: Amplification factor $|G|$ against $\theta=k\Delta x$. A scheme is stable when $|G|\le1$ for every wavenumber. For $\nu=0.5$, FTCS exceeds 1 at all intermediate wavenumbers, while FTBS, Lax and Lax–Wendroff stay below 1 (and damp short waves). For $\nu=1.2$ every scheme exceeds 1 somewhere.*
+
 ## Summary of the schemes seen so far
 
 | Scheme | Accuracy | Stability for $u_t+cu_x=0$ | Behavior |

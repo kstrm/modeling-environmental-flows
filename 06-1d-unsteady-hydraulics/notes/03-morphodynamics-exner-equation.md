@@ -24,6 +24,10 @@ $$(1-\lambda_p)\frac{\partial\eta}{\partial t}=-\frac{\partial q_t}{\partial x},
 
 where $\lambda_p$ is the porosity of the bed and $q_t=q_s+q_b$ is the total volumetric sediment flux per unit width, the sum of suspended load $q_s$ and bed load $q_b$. Where the transport capacity increases in the downstream direction ($\partial q_t/\partial x>0$) the bed erodes, and where it decreases the bed aggrades. With a width variation $w(x)$ the equation becomes the form used in the [MacCormack example](01-governing-equations-and-explicit-schemes.md), $\partial\eta/\partial t+\partial(q_s/(1-\lambda_p))/\partial x=-(1/w)(\partial w/\partial x)\,q_s/(1-\lambda_p)$.
 
+![Exner equation control volume and the sign of the bed change](../figures/exner-bed-change.svg)
+
+*Figure: Top: conservation of bed sediment for a short segment of length $dx$. Bottom: where the transport rate $q_t$ increases downstream the bed erodes, and where it decreases the bed aggrades.*
+
 ## A closed set of equations
 
 1D morphodynamics is then:

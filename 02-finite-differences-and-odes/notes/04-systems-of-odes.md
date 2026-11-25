@@ -106,6 +106,11 @@ By default `solve_ivp` uses an adaptive Runge-Kutta method (`RK45`, Dormand-Prin
 
 Note the array layout is the same as Method 2: `sol.y[0]` is rabbits and `sol.y[1]` is foxes, one row per variable. Use `ax.plot(t, sol.y.T)` to plot both at once. The older `odeint` interface, which takes `f(y, t)` and returns the transpose, is still found in a lot of code, but new code should use `solve_ivp`.
 
+![Rabbit and fox populations, phase plot, and solver cost](../figures/predator-prey.svg)
+
+*Figure: Predator–prey system. Left: the populations oscillate, with foxes lagging rabbits. Middle: the $R$–$F$ phase plot is a closed loop. Right: function evaluations for different `solve_ivp` methods at a tight tolerance; the higher-order methods are far cheaper, and the implicit `Radau` method, meant for stiff problems, is wasteful here.*
+
+
 :::{admonition} Hands-on: ODE systems, Method 3: solve_ivp
 :class: note
 Compare a library solver with your own RK4. Work through **[ODE systems, Method 3: solve_ivp](../completed/08_ODESys-Method3-solve_ivp.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/02-finite-differences-and-odes/notebooks/08_ODESys-Method3-solve_ivp.ipynb>) and fill in the blanks yourself.

@@ -38,6 +38,11 @@ $$\frac{dh}{dx}=\frac{S_o-S_f}{1-Fr^2}=\frac{S_o-C_fFr^2}{1-Fr^2},$$
 
 an ODE of the form $dh/dx=f[h(x)]$. This is the gradually varied flow (GVF) equation, the basis of steady HEC-RAS.
 
+![Gradually varied flow profiles on mild and steep slopes](../figures/gvf-profiles.svg)
+
+*Figure: Gradually varied flow profiles computed from the equation above for a wide rectangular channel (here $q=3$ m$^2$/s, $n=0.03$), each started at a control at $x=0$. Dashed line: normal depth $y_n$; dotted line: critical depth $y_c$. On a mild slope the profiles are M1 (above $y_n$, a backwater), M2 (between $y_n$ and $y_c$, a drawdown toward a free overfall) and M3 (below $y_c$, short and steep). On a steep slope they are S1, S2 and S3. The step size must be small near $y_c$, where $1-Fr^2\to0$.*
+
+
 ## The direct step method
 
 In open-channel flow courses we teach the "direct step" method:

@@ -78,6 +78,10 @@ for n in range(1, 25):
         u[i] = un[i] - c*dt/(2*dx)*(un[i+1] - un[i-1])
 ```
 
+![The square wave advected with FTBS and with FTCS](../figures/ftbs-vs-ftcs.svg)
+
+*Figure: The square wave after 25 steps ($\nu=0.49$). FTBS smears the edges but never leaves the range of the data. FTCS, despite its higher spatial accuracy, produces oscillations that grow without bound.*
+
 ### A vectorized version
 
 The double loop is the clearest way to see the scheme, but NumPy can update every grid point of one time step in a single array operation. Slicing does the work: `un[1:]` holds the $u_i$ and `un[:-1]` holds the $u_{i-1}$.

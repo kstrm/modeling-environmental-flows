@@ -69,6 +69,11 @@ $$\frac{dC_1}{dt}=-\tfrac12C_1,\qquad\frac{dC_2}{dt}=\tfrac14C_1-\tfrac14C_2,\qq
 
 The point of the exercise: a numerical solution of the wrong equations still runs and produces smooth curves, so you must critically examine the output (e.g., does total salt mass behave physically? do the curves make sense?).
 
+![Three tanks in series, concentration curves and a mass check](../figures/three-tanks.svg)
+
+*Figure: Three tanks in series flushed with fresh water. Middle: the concentrations fall in sequence, with the downstream tanks lagging. Right: total salt mass, $\sum V_iC_i$. With the correct equations it only decays. With the handout equations the curves look just as smooth, but salt mass is created at the start (the total first rises above its initial value), which flags the error.*
+
+
 ## Check your understanding
 
 **1.** What two conditions let a system be written as an initial value ODE?

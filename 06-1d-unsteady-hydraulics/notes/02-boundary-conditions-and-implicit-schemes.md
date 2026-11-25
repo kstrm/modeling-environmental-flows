@@ -24,6 +24,11 @@ $$\begin{aligned}C1&:\;V_P+\frac{gy_P}{c_R}=V_R+\frac{gy_R}{c_R}+g(S_o-S_{fR})\D
 
 At the upstream boundary only the C2 relation reaches the boundary, and at the downstream boundary only C1. Combine the one relation with a specified value, $y(t)$ or $V(t)$ (or a relation among them below). In practice one often uses a combination of specified values and the method of characteristics.
 
+![Characteristics reaching the upstream and downstream boundaries](../figures/boundary-characteristics.svg)
+
+*Figure: In subcritical flow one characteristic reaches each boundary from the interior: $C_2$ (speed $V-c$, traveling upstream) at the upstream end and $C_1$ (speed $V+c$, traveling downstream) at the downstream end. Each supplies one relation. The second condition must be specified.*
+
+
 **Other options**
 
 | Condition | Relation |
@@ -50,6 +55,11 @@ $$\mathbf U_i^{k+1}+\mathbf U_{i+1}^{k+1}+2\frac{\Delta t}{\Delta x}\left[\alpha
 
 - $\alpha=0$: fully explicit; $\alpha=1$: fully implicit.
 - Stable for $0.55<\alpha\le1$. Smaller $\alpha$ gives a sharper wave front but less damping of oscillations.
+
+![The Preissmann four-point box scheme](../figures/preissmann-box.svg)
+
+*Figure: The Preissmann scheme uses four points. Time differences are taken across the box, and space differences and averaged quantities weight the new level by $\alpha$ and the old level by $1-\alpha$.*
+
 
 **Counting equations.** Each segment between nodes $i$ and $i+1$ gives 2 equations (mass and momentum). With $N$ segments there are $2N$ equations and $2(N+1)$ unknowns ($y$ and $V$ at each of $N+1$ nodes). The 2 remaining equations are the **2 boundary conditions**.
 

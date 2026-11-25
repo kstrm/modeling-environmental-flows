@@ -58,6 +58,11 @@ u[1:-1] = (un[1:-1] - 0.5*nu*(un[2:] - un[:-2])
 
 Upwind gives a monotone, smeared solution; Lax–Wendroff gives a sharp solution with wiggles. **Godunov's theorem** says that no *linear* scheme of higher than first order can be monotone. Modern schemes such as TVD methods (total variation diminishing, with flux limiters) get around this by being *nonlinear*: they behave like Lax–Wendroff where the solution is smooth and like upwind near sharp fronts. The TVD step in the MacCormack scheme used for shock capturing in [1D unsteady hydraulics](../../06-1d-unsteady-hydraulics/notes/01-governing-equations-and-explicit-schemes.md) is of this type.
 
+![Upwind, Lax and Lax-Wendroff on a square wave and a smooth pulse](../figures/scheme-comparison.svg)
+
+*Figure: Three schemes at $\nu=0.5$. On the sharp front (left) upwind and Lax smear the edges while Lax–Wendroff oscillates. On the smooth pulse (right) Lax–Wendroff is nearly exact and the first-order schemes lose amplitude.*
+
+
 ## Diffusion and advection–diffusion
 
 Explicit FTCS for $u_t=\nu_d\,u_{xx}$ is stable only for $r=\nu_d\Delta t/\Delta x^2\le\tfrac12$. For advection–diffusion $u_t+c\,u_x=\nu_d\,u_{xx}$ with upwind advection and central diffusion, stability requires $\nu+2r\le1$.

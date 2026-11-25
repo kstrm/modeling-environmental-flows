@@ -78,6 +78,11 @@ Compare with the analytic solution, which satisfies the same initial condition:
 
 $$\xi(t)=-\frac{2}{4}t^4+\frac{12}{3}t^3-\frac{20}{2}t^2+8.5\,t+1.$$
 
+![Explicit Euler steps against the analytic solution for two step sizes](../figures/euler-steps.svg)
+
+*Figure: Explicit Euler for the example. Each step follows the slope at the start of the interval, so the numerical path drifts from the analytic curve; the smaller step ($\Delta t=0.1$) stays much closer than $\Delta t=0.5$.*
+
+
 
 :::{admonition} Hands-on: Euler's method
 :class: note

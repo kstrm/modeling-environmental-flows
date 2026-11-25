@@ -62,6 +62,11 @@ $$
 
 RK4 needs information only at step $i$ to predict step $i+1$ to fourth-order accuracy.
 
+![The four slope evaluations of one RK4 step](../figures/rk4-slopes.svg)
+
+*Figure: One RK4 step for $y^\prime=y-t^2+1$ with a deliberately large $\Delta t=1$. $K_0$ is the slope at the start, $K_1$ and $K_2$ are midpoint slopes using successive corrections, and $K_3$ is the slope at the end. Their weighted average (green) lands close to the exact value (circle), where a single Euler step (dashed) falls well short.*
+
+
 ## Building our own RK4
 
 A toy model with a known solution:

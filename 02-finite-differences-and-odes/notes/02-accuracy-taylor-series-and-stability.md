@@ -60,6 +60,11 @@ $$\dot\xi_i=\frac{\xi_{i+1}-\xi_i}{\Delta t}+O(\Delta t),$$
 
 meaning the truncation error is of order $\Delta t$. Halving the step roughly halves the error.
 
+![Maximum Euler error against step size on a log-log plot](../figures/euler-error-order.svg)
+
+*Figure: Maximum error of explicit Euler for the example above. On a log-log plot the points follow the slope-1 line, the signature of a first-order method. A second-order method would follow the steeper dotted line.*
+
+
 ## Stability
 
 A **stable** scheme gets closer to the true solution as it marches; an **unstable** scheme diverges.
@@ -86,11 +91,15 @@ $$\Delta x<\frac1\lambda.$$
 
 - $\Delta x<2/100=0.02$ is required for the solution to converge to zero.
 - $\Delta x<1/100=0.01$ is required to remove oscillations.
-- With $\Delta x=0.1$ the solution blows up (the factor is $1-10=-9$). With $\Delta x=0.05$, $0.025$ and $0.01$, try each in the notebook and observe the transition from growth, to decaying oscillation, to smooth decay.
+- With $\Delta x=0.1$ the solution blows up (the factor is $1-10=-9$). Try $\Delta x=0.025$, $0.012$ and $0.005$ in the notebook and observe the transition from growth (factor $-1.5$), to decaying oscillation (factor $-0.2$), to smooth decay (factor $+0.5$). At exactly $\Delta x=0.01$ the factor is zero and the first step lands on zero.
+
+![Explicit Euler for y prime equals minus 100 y with three step sizes](../figures/euler-stability-examples.svg)
+
+*Figure: Explicit Euler for $y^\prime=-100y$. The amplification factor $1-\lambda\Delta x$ sets the behavior: magnitude above 1 grows with alternating sign, a negative factor inside $(-1,0)$ decays with oscillation, and a positive factor decays smoothly.*
 
 :::{admonition} Hands-on: Euler method: stability
 :class: note
-Try the step sizes from the example (0.1, 0.05, 0.025, 0.01) and watch the transition from growth to smooth decay. Work through **[Euler method: stability](../completed/02_Euler_Method-Stability.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/02-finite-differences-and-odes/notebooks/02_Euler_Method-Stability.ipynb>) and fill in the blanks yourself.
+Try the step sizes from the example (0.1, 0.025, 0.012, 0.005) and watch the transition from growth to smooth decay. Work through **[Euler method: stability](../completed/02_Euler_Method-Stability.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/02-finite-differences-and-odes/notebooks/02_Euler_Method-Stability.ipynb>) and fill in the blanks yourself.
 :::
 
 ### Implicit Euler
@@ -98,6 +107,11 @@ Try the step sizes from the example (0.1, 0.05, 0.025, 0.01) and watch the trans
 $$y_{i+1}=y_i+\Delta x(-\lambda y_{i+1})\;\Rightarrow\;y_{i+1}(1+\lambda\Delta x)=y_i\;\Rightarrow\;y_{i+1}=\frac{1}{1+\lambda\Delta x}\,y_i.$$
 
 For stability we need $\left|\dfrac{1}{1+\lambda\Delta x}\right|<1$, which holds for **every** $\Delta x>0$ when $\lambda>0$: the implicit scheme is unconditionally stable for this problem. Even with $\Delta x=0.1$ the solution decays smoothly (though inaccurately). In general, implicit methods are more stable than explicit ones, at the cost of solving an equation at each step.
+
+![Stability regions of explicit and implicit Euler in the complex plane](../figures/euler-stability-regions.svg)
+
+*Figure: Stability regions in the complex plane of $z=\lambda\Delta t$. Explicit Euler is stable only inside the unit disk centered at $-1$; implicit Euler is stable everywhere outside the disk centered at $+1$, which includes the whole left half-plane. This is the picture behind the statement that implicit methods are more stable.*
+
 
 ## Check your understanding
 

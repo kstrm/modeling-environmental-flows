@@ -21,6 +21,10 @@ A steady, 1D (layer-averaged) model of a buoyant river plume entering a lake, re
 - Most slot-jet formulations are for $w/h=O(1)$. For rivers, $w/h\gg1$, so lateral spreading must be accounted for by a mechanism other than entrainment.
 - We care only about the plume hydraulics: the plume widens ($w=w(x)$) and deepens ($h=h(x)$), entrains ambient water ($Q=Q(x)$), slows ($u=u(x)$) and dilutes ($\Delta\rho=\Delta\rho(x)$).
 
+![Plan and side view of a buoyant river plume](../figures/plume-setup.svg)
+
+*Figure: Setup of the plume model. In plan view the plume widens, $w(x)$, at a rate set by the interfacial wave speed. In side view it deepens, $h(x)$, as ambient water is entrained through its base, which grows the discharge $Q(x)$ and dilutes the density difference $\Delta\rho(x)$.*
+
 **Five unknowns** need five equations: $Q$, $u$, $w$, $h$, $\Delta\rho$. The definition $Q=hwu$ is one. Conservation principles supply the others: (1) fluid mass, (2) fluid volume, (3) fluid momentum, and (4) an ad hoc closure for the spreading rate. An entrainment law is still needed.
 
 ## Equations
