@@ -6,6 +6,8 @@ title: "Exercise: Tar River backwater and a buoyant river plume"
 
 Related lessons: [steady 1D hydraulics and GVF](../../notes/03-steady-1d-hydraulics-gvf.md) and [river mouth plume](../../notes/05-river-mouth-plume.md). The data for problem 2 are in the `Data/` folder next to this page.
 
+**Data provenance.** The files in `Data/` contain values extracted (digitized) from figures in published journal papers, including Strom and Keyvani (2016) and Hetland (2010); they are provided for educational use only. Please cite the original papers when using them, and consult the originals for authoritative values.
+
 ## Problem 1: Depth and velocity in a coastal river
 
 Compute depth and velocity in the Tar River in North Carolina under (1) low discharge and high sea level (a storm surge before the river has had time to swell) and (2) high discharge and normal sea level (a draining landscape after the storm has passed and the surge has fallen).
