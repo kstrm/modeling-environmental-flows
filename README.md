@@ -25,3 +25,9 @@ jupyter lab
 ```
 
 To build the book: `pip install mystmd && myst build --html`.
+
+## License
+
+- **Code and notebooks:** [MIT](LICENSE).
+- **Lecture notes, exercise text and figures:** [CC BY-NC 4.0](LICENSE-CONTENT). Please give credit and do not use the material commercially.
+- Third-party data and publications keep their own terms.
