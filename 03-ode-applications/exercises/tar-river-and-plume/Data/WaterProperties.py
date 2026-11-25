@@ -1,3 +1,5 @@
+import numpy as np
+
 #returns the clear-water density in kg/m^3 as a function of temperature [in deg C] and salinity [ppt]
 def rho_cw(T,S):
     rho_fresh=1000*(1-(T +288.9414)/(508929.2*(T+68.12963))*(T-3.9863)**2)
@@ -7,4 +9,4 @@ def rho_cw(T,S):
 
 # returns the clear water kinimatic viscosity in [m^2/s] as a function of temperature [in deg C].
 def visc(T):
-    return 2.7488e-07+1.4907e-06*exp(-0.034812*T)
+    return 2.7488e-07+1.4907e-06*np.exp(-0.034812*T)
