@@ -7,6 +7,7 @@ project:
   github: kstrm/modeling-environmental-flows
   exclude:
     - README.md
+    - LICENSE-CONTENT
     - _private/**
     - "**/.ipynb_checkpoints/**"
     - "*/notebooks/**"
@@ -63,14 +64,20 @@ project:
         - file: 05-pdes/index.md
         - file: 05-pdes/notes/01-pdes-classification-and-model-equations.md
         - file: 05-pdes/notes/02-advection-equation-ftbs-ftcs.md
+        - file: 05-pdes/notes/03-stability-cfl-and-von-neumann.md
+        - file: 05-pdes/notes/04-upwind-lax-and-implicit-schemes.md
         - file: 05-pdes/completed/09_ClassicFD_Bokeh.ipynb
         - file: 05-pdes/completed/13_SimplePDE_Advection.ipynb
+        - file: 05-pdes/completed/14_AdvectionDiffusion_Schemes_Stability.ipynb
         - file: 05-pdes/exercises/advection-diffusion-spill/index.md
     - title: "06 1D unsteady hydraulics"
       children:
         - file: 06-1d-unsteady-hydraulics/index.md
+        - file: 06-1d-unsteady-hydraulics/notes/00-saint-venant-equations-and-wave-speeds.md
         - file: 06-1d-unsteady-hydraulics/notes/01-governing-equations-and-explicit-schemes.md
         - file: 06-1d-unsteady-hydraulics/notes/02-boundary-conditions-and-implicit-schemes.md
+        - file: 06-1d-unsteady-hydraulics/notes/03-morphodynamics-exner-equation.md
+        - file: 06-1d-unsteady-hydraulics/completed/15_DamBreak_Lax_MacCormack.ipynb
         - file: 06-1d-unsteady-hydraulics/exercises/capstone-projects/index.md
     - file: references.md
 site:

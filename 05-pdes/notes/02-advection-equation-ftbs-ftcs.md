@@ -77,4 +77,4 @@ for n in range(1, 25):
 - With a periodic boundary condition (`u[0] = u[-1]`) run for a long time (75 steps, $t=1.5$), the profile is smeared further into a smooth bump that wraps around the domain.
 - **FTCS** is more accurate in space (second order) but, run for the same time, produces large growing oscillations (values below 0 and above 3 for a wave that should stay between 1 and 2). The scheme is unstable for this equation, however small the time step. Accuracy in space alone is not enough: the combination of time and space schemes determines stability.
 
-This motivates asking: *Other methods?* (upwinding, Lax-type schemes, implicit schemes, and the stability criteria that govern them).
+This motivates asking: *Other methods?* The next two notes explain why FTCS fails and FTBS smears ([stability and the CFL condition](03-stability-cfl-and-von-neumann.md)) and introduce the alternatives ([upwind, Lax and implicit schemes](04-upwind-lax-and-implicit-schemes.md)).

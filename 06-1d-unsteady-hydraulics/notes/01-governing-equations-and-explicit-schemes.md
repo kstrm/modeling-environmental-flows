@@ -4,7 +4,7 @@ title: 1D Unsteady Hydraulics - Governing Equations and Explicit Schemes
 
 # 1D Unsteady Hydraulics: Governing Equations and Explicit Schemes
 
-A brief introduction to the Saint-Venant equations and a few discretization methods. See Chaudhry (2008), *Open-Channel Flow*, for more.
+A brief introduction to the Saint-Venant equations and a few discretization methods. The [previous note](00-saint-venant-equations-and-wave-speeds.md) derives the equations; see Chaudhry (2008), *Open-Channel Flow*, for more.
 
 ## Governing equations
 
