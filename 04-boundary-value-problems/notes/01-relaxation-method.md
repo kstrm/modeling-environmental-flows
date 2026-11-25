@@ -51,7 +51,7 @@ B = np.array([35, 94])
 X = linalg.solve(A, B)          # [23., 12.]
 ```
 
-Prefer `solve` to forming the inverse explicitly. (NumPy also provides `np.linalg.solve`.)
+Prefer `solve` to forming the inverse explicitly. (NumPy also provides `np.linalg.solve`.) Use plain 2D `np.array` objects for matrices (not the legacy `np.matrix`), and write matrix products with `@`: on arrays, `*` multiplies element by element, so `np.linalg.inv(A) * B` does **not** give the solution while `np.linalg.inv(A) @ B` does.
 
 ## Example: Poiseuille–Couette flow
 
