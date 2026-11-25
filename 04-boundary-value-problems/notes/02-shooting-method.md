@@ -89,3 +89,19 @@ With the first guess $h(0)=1$, $g(\eta_\infty)\approx2.09$ rather than 1. The it
 $$f''(0)=h(0)\approx0.332,$$
 
 the classic Blasius wall-shear value, and $g(\eta_\infty)=0.9999999\ldots$. The converged profile $u/U_\infty=f'(\eta)=g(\eta)$ rises smoothly from 0 at the wall to 1 by $\eta\approx5$.
+
+## A shortcut: using the scaling symmetry
+
+The Blasius equation $f'''+\tfrac12ff''=0$ has a scaling symmetry that removes the need to iterate. If $f(\eta)$ is a solution, so is
+
+$$F(\eta)=\lambda f(\lambda\eta)\qquad\text{for any }\lambda>0.$$
+
+To see this, differentiate: $F'=\lambda^2f'$, $F''=\lambda^3f''$ and $F'''=\lambda^4f'''$, while $FF''=\lambda^4ff''$, so every term of the equation picks up the same factor $\lambda^4$. The scaled solution still satisfies $F(0)=F'(0)=0$, but
+
+$$F''(0)=\lambda^3\,f''(0),\qquad F'(\infty)=\lambda^2\,f'(\infty).$$
+
+Now shoot once with any guess $h(0)=h_0$ and read off the far-field value $G=g(\eta_\infty)$. We want $F'(\infty)=\lambda^2G=1$, so $\lambda=G^{-1/2}$, and the correct initial slope is
+
+$$h(0)=\lambda^3h_0=G^{-3/2}\,h_0.$$
+
+With $h_0=1$ and $G\approx2.0854$ this gives $h(0)=G^{-3/2}\approx0.33206$, the converged value from the secant iteration, after a single extra integration. The shortcut works because the problem is homogeneous under the scaling. Most nonlinear BVPs have no such symmetry and need an iterative root-finder, so treat this as a special feature of similarity solutions.
