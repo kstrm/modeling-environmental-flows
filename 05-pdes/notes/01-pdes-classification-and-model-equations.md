@@ -27,6 +27,10 @@ a $p$th-order PDE with $P$ a polynomial in $\partial/\partial x$. (Be able to sa
 
 ## Six model equations
 
+![Advection translates a profile; diffusion spreads it](../figures/advection-vs-diffusion.svg)
+
+*Figure: Advection translates a profile without changing its shape; diffusion spreads it and lowers the peak.*
+
 **1. Advection**, $P=-c\,\partial/\partial x$ with constant advective speed $c$:
 
 $$\frac{\partial u}{\partial t}=-c\frac{\partial u}{\partial x}\qquad(1\text{ IC},\;1\text{ BC}).$$

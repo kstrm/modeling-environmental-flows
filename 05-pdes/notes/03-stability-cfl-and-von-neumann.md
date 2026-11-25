@@ -18,6 +18,10 @@ For well-posed linear problems, the **Lax equivalence theorem** says that a cons
 
 ## The Courant number and the CFL condition
 
+![CFL domain of dependence for stable and unstable Courant numbers](../figures/cfl-domain-of-dependence.svg)
+
+*Figure: The CFL condition. When $\nu\le1$ the physical characteristic lies inside the numerical domain of dependence; when $\nu>1$ it falls outside and the scheme cannot be correct.*
+
 For advection at speed $c$, define the Courant number
 
 $$\nu=\frac{c\,\Delta t}{\Delta x},$$

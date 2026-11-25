@@ -115,6 +115,10 @@ $$\frac{\partial Q}{\partial t}+\frac{\partial}{\partial x}\left(\beta\frac{Q^2}
 
 ## Overall modeling approaches
 
+![Three averaging levels: time averaging, depth averaging, cross-section averaging](../figures/averaging-levels.svg)
+
+*Figure: Averaging removes detail and dimensions. Time averaging gives RANS, depth averaging gives the 2D shallow-water equations, and cross-section averaging gives the 1D Saint-Venant equations.*
+
 | Approach | Equations | Notes |
 |---|---|---|
 | **DNS** (Direct Numerical Simulation) | Full Navier–Stokes and continuity | Solved at high resolution in space and time to compute all eddy motions directly. |

@@ -34,6 +34,10 @@ with initial conditions $f(0)=0$ and $g(0)=0$. The third condition is a far-fiel
 
 ## Shooting
 
+![Blasius boundary layer, shooting trajectories, and root of the target function](../figures/blasius-and-shooting.svg)
+
+*Figure: The boundary layer (left); trajectories for different guesses of $h(0)$ (center); the target function whose root is the correct initial slope (right).*
+
 1. **Guess** a value for $h(0)$ (try $h(0)=1$ first).
 2. Integrate the system as an initial value problem with RK4 out to a large $\eta$ (say 10).
 3. **Check** whether $g(\eta_\infty)\to1$. If not, update $h(0)$ and repeat.

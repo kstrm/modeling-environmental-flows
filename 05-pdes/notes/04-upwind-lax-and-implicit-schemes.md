@@ -85,6 +85,10 @@ Here $r=1$ and the solution remains stable and close to the exact Gaussian solut
 
 **Implicit schemes for advection.** Backward-in-time upwind is unconditionally stable for $c>0$ but very diffusive at large $\nu$, and the central version is unconditionally stable with strong dispersion errors. Large time steps therefore buy stability but not accuracy: choose $\Delta t$ for the time scale of the physics you need to resolve.
 
+![Space-time stencils of the schemes in this module](../figures/stencils.svg)
+
+*Figure: Stencils of the schemes in this module. Explicit schemes compute one new value from known ones; implicit schemes couple new-level values and require a linear solve.*
+
 ## Choosing a scheme
 
 | Situation | Reasonable choice |

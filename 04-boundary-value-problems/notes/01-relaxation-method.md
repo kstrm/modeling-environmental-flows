@@ -55,6 +55,10 @@ Prefer `solve` to forming the inverse explicitly. (NumPy also provides `np.linal
 
 ## Example: Poiseuille–Couette flow
 
+![Flow between two parallel plates with a pressure gradient and moving plates](../figures/poiseuille-couette-setup.svg)
+
+*Figure: Setup for the Poiseuille–Couette example: flow between plates at $z=0$ and $z=h$ driven by a pressure gradient and plate motion.*
+
 Steady, laminar, 2D, linear flow between two parallel plates separated by a gap $h$. The bottom plate ($z=0$) moves at $U_b$ and the top plate ($z=h$) at $U_t$, with a constant pressure gradient $dp/dx=G$. From the Navier–Stokes equations and these assumptions,
 
 $$0=-\frac{dp}{dx}+\frac{d}{dz}\left(\mu\frac{du}{dz}\right)\;\Rightarrow\;\frac{d^2u}{dz^2}-\frac G\mu=0,$$

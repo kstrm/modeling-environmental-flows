@@ -46,6 +46,10 @@ $$h_t+u\,h_x+h\,u_x=0,\qquad u_t+u\,u_x+g\,h_x=0.$$
 
 ## Waves and characteristics
 
+![Saint-Venant control volume and characteristic directions](../figures/saint-venant-setup-and-characteristics.svg)
+
+*Figure: Control volume for the 1D equations (left) and characteristic directions for subcritical and supercritical flow (right).*
+
 Write the $(h,u)$ system as $\mathbf W_t+\mathbf A\,\mathbf W_x=\mathbf 0$, with
 
 $$\mathbf W=\begin{pmatrix}h\\u\end{pmatrix},\qquad\mathbf A=\begin{pmatrix}u&h\\g&u\end{pmatrix}.$$
@@ -65,6 +69,10 @@ The **Froude number** $Fr=|u|/c$ decides how the characteristics are oriented:
 - **Subcritical** ($Fr<1$): $u+c>0$ and $u-c<0$, so information travels both upstream and downstream. One boundary condition is needed at each end of a reach.
 - **Supercritical** ($Fr>1$): both speeds are positive, so disturbances cannot travel upstream and both boundary conditions are set at the upstream end.
 - **Transcritical** flow passes through $Fr=1$, which is the case that motivates shock-capturing schemes.
+
+![Dam-break solution: rarefaction, middle state and bore](../figures/dam-break-structure.svg)
+
+*Figure: Exact dam-break solution for $h_L=10$ m and $h_R=5$ m: a rarefaction fan moves upstream and a bore moves downstream, separated by a constant middle state ($h_m\approx7.27$ m).*
 
 ## Which terms matter? Simplified wave models
 

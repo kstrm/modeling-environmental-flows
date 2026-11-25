@@ -8,6 +8,10 @@ A tank of diameter $D$ has a drain of diameter $d$ at the bottom. We want the wa
 
 Companion notebook: [4th-order Runge–Kutta, tank example](../completed/04_4th-Order_Runge-Kutta_TankExample.ipynb).
 
+![Draining tank and well-mixed tank schematics](../figures/tank-schematics.svg)
+
+*Figure: A draining tank (left) and a well-mixed tank carrying a dissolved substance (right).*
+
 ## Governing equation
 
 Conservation of mass for the water in the tank, $dM/dt=\sum\dot m_{in}-\sum\dot m_{out}$, with $M=\rho\mathcal V$ and $\dot m=\rho Q$ ($Q$ is the volumetric flow rate):
