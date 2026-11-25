@@ -24,7 +24,7 @@ Terminology, model equations, and finite-difference schemes for advection and di
 
 | Notebook | Open in Colab |
 |---|---|
-| [09 ClassicFD Bokeh](completed/09_ClassicFD_Bokeh.ipynb) | [Student version](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/05-pdes/notebooks/09_ClassicFD_Bokeh.ipynb>) |
+| [09 ClassicFD](completed/09_ClassicFD.ipynb) | [Student version](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/05-pdes/notebooks/09_ClassicFD.ipynb>) |
 | [13 SimplePDE Advection](completed/13_SimplePDE_Advection.ipynb) | [Student version](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/05-pdes/notebooks/13_SimplePDE_Advection.ipynb>) |
 | [14 AdvectionDiffusion Schemes Stability](completed/14_AdvectionDiffusion_Schemes_Stability.ipynb) | [Student version](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/05-pdes/notebooks/14_AdvectionDiffusion_Schemes_Stability.ipynb>) |
 

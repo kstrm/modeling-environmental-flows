@@ -81,7 +81,7 @@ This is second-order accurate (the leading error term vanishes by symmetry). In 
 
 The second derivative is the diffusive term in the advection–diffusion and Navier–Stokes equations. Error analysis (how a scheme responds to sines of different frequency) comes later.
 
-## Implementation: loops, slicing and plotting with Bokeh
+## Implementation: loops, slicing and plotting
 
 For $f(x)=\sin x$ on $[0,6\pi]$ with $N=100$ points, the derivative is estimated with a loop,
 
@@ -106,11 +106,11 @@ df_b[1:]  = (f[1:]  - f[:-1]) / (x[1:]  - x[:-1])     # backward
 df_c[1:-1] = (f[2:] - f[:-2]) / (x[2:]  - x[:-2])     # central
 ```
 
-Each is compared with the analytic $\cos x$. The end points are not set by the central difference (they need a one-sided formula or a boundary condition). The notebook uses the interactive plotting library Bokeh alongside matplotlib.
+Each is compared with the analytic $\cos x$. The end points are not set by the central difference (they need a one-sided formula or a boundary condition). The notebook ends with a slider that shows how the error of each formula changes with the number of points.
 
-:::{admonition} Hands-on: Classic finite differences with Bokeh
+:::{admonition} Hands-on: Classic finite differences and vector operations
 :class: note
-Compute and plot the three differences for $\sin x$ and compare them with $\cos x$. Work through **[Classic finite differences with Bokeh](../../05-pdes/completed/09_ClassicFD_Bokeh.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/05-pdes/notebooks/09_ClassicFD_Bokeh.ipynb>) and fill in the blanks yourself.
+Compute and plot the three differences for $\sin x$ and compare them with $\cos x$. Work through **[Classic finite differences and vector operations](../../05-pdes/completed/09_ClassicFD.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/05-pdes/notebooks/09_ClassicFD.ipynb>) and fill in the blanks yourself.
 :::
 
 ## Matrix derivative operator

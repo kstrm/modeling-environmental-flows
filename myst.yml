@@ -41,7 +41,7 @@ project:
         - file: 02-finite-differences-and-odes/exercises/euler-accuracy-stability/index.md
         - file: 02-finite-differences-and-odes/notes/05-adams-bashforth-moulton.md
         - file: 02-finite-differences-and-odes/notes/06-spatial-discretization.md
-        - file: 05-pdes/completed/09_ClassicFD_Bokeh.ipynb
+        - file: 05-pdes/completed/09_ClassicFD.ipynb
     - title: "03 ODE applications"
       children:
         - file: 03-ode-applications/index.md
