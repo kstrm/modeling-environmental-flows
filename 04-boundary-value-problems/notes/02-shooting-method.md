@@ -14,8 +14,6 @@ After this lesson you should be able to:
 - use the scaling symmetry to find $h(0)$ with a single extra shot
 :::
 
-Companion notebook: [Blasius boundary layer](../completed/12_BCproblem_Blasius.ipynb).
-
 ## Problem
 
 For a laminar boundary layer over a flat plate, the velocity $u=u(x,z)$ approaches the free-stream value $U_\infty$ at the edge of the layer $\delta$. The governing equations are continuity and the boundary layer momentum equation:
@@ -115,6 +113,11 @@ Now shoot once with any guess $h(0)=h_0$ and read off the far-field value $G=g(\
 $$h(0)=\lambda^3h_0=G^{-3/2}\,h_0.$$
 
 With $h_0=1$ and $G\approx2.0854$ this gives $h(0)=G^{-3/2}\approx0.33206$, the converged value from the secant iteration, after a single extra integration. The shortcut works because the problem is homogeneous under the scaling. Most nonlinear BVPs have no such symmetry and need an iterative root-finder, so treat this as a special feature of similarity solutions.
+
+:::{admonition} Hands-on: Blasius boundary layer
+:class: note
+Shoot for $h(0)$, then try the scaling shortcut. Work through **[Blasius boundary layer](../completed/12_BCproblem_Blasius.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/04-boundary-value-problems/notebooks/12_BCproblem_Blasius.ipynb>) and fill in the blanks yourself.
+:::
 
 ## Check your understanding
 

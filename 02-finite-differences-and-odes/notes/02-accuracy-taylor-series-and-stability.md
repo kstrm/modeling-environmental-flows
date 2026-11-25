@@ -13,8 +13,6 @@ After this lesson you should be able to:
 - distinguish the step needed for stability from the step needed to avoid oscillation
 :::
 
-Companion notebooks: [Euler method](../completed/01_Euler_Method.ipynb) and [Euler method stability](../completed/02_Euler_Method-Stability.ipynb).
-
 ## Quantifying the error
 
 Solving $d\xi/dt=-2t^3+12t^2-20t+8.5$ with $\xi(0)=1$ from $t=0$ to $5$ using explicit Euler, the numerical solution is compared with the analytic one
@@ -34,6 +32,11 @@ Reducing the step size improves the prediction, but not for free (more steps, mo
 
 - the size of $\Delta t$, and
 - the shape of the function (how much the slope changes over the step).
+
+:::{admonition} Hands-on: Euler's method
+:class: note
+The error table above is computed in the same notebook as the Euler example. Work through **[Euler's method](../completed/01_Euler_Method.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/02-finite-differences-and-odes/notebooks/01_Euler_Method.ipynb>) and fill in the blanks yourself.
+:::
 
 ## Taylor series
 
@@ -84,6 +87,11 @@ $$\Delta x<\frac1\lambda.$$
 - $\Delta x<2/100=0.02$ is required for the solution to converge to zero.
 - $\Delta x<1/100=0.01$ is required to remove oscillations.
 - With $\Delta x=0.1$ the solution blows up (the factor is $1-10=-9$). With $\Delta x=0.05$, $0.025$ and $0.01$, try each in the notebook and observe the transition from growth, to decaying oscillation, to smooth decay.
+
+:::{admonition} Hands-on: Euler method: stability
+:class: note
+Try the step sizes from the example (0.1, 0.05, 0.025, 0.01) and watch the transition from growth to smooth decay. Work through **[Euler method: stability](../completed/02_Euler_Method-Stability.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/02-finite-differences-and-odes/notebooks/02_Euler_Method-Stability.ipynb>) and fill in the blanks yourself.
+:::
 
 ### Implicit Euler
 

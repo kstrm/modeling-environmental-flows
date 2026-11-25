@@ -15,8 +15,6 @@ After this lesson you should be able to:
 - use the cell Péclet number to choose a scheme for advection–diffusion
 :::
 
-Companion notebook: [Stability and accuracy of schemes for advection and diffusion](../completed/14_AdvectionDiffusion_Schemes_Stability.ipynb).
-
 This note continues from [stability and the CFL condition](03-stability-cfl-and-von-neumann.md) with the main families of schemes used for advection, diffusion and their combination.
 
 ## Advection
@@ -65,6 +63,11 @@ Upwind gives a monotone, smeared solution; Lax–Wendroff gives a sharp solution
 Explicit FTCS for $u_t=\nu_d\,u_{xx}$ is stable only for $r=\nu_d\Delta t/\Delta x^2\le\tfrac12$. For advection–diffusion $u_t+c\,u_x=\nu_d\,u_{xx}$ with upwind advection and central diffusion, stability requires $\nu+2r\le1$.
 
 **Cell Péclet number.** The ratio of advection to diffusion across one cell, $Pe_\Delta=|c|\Delta x/\nu_d$, controls accuracy. If it is large, central differencing of the advective term (FTCS-type) tends to produce wiggles and upwinding is preferred, but then the numerical diffusion $\tfrac{c\Delta x}{2}(1-\nu)$ can exceed the physical diffusion $\nu_d$. For a dispersion problem such as a spill, the grid spacing must be fine enough that the numerical diffusion is small compared with $D_L$.
+
+:::{admonition} Hands-on: Stability and accuracy of advection–diffusion schemes
+:class: note
+The same notebook compares Lax, Lax–Wendroff and upwind and tests the advection–diffusion limit. Work through **[Stability and accuracy of advection–diffusion schemes](../completed/14_AdvectionDiffusion_Schemes_Stability.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/05-pdes/notebooks/14_AdvectionDiffusion_Schemes_Stability.ipynb>) and fill in the blanks yourself.
+:::
 
 ## Implicit schemes
 
@@ -120,6 +123,11 @@ Here $r=1$ and the solution remains stable and close to the exact Gaussian solut
 | Sharp fronts or shocks | TVD / limited schemes (e.g. MacCormack with TVD) |
 | Diffusion on fine grids | implicit (BTCS or Crank–Nicolson) |
 | Rivers, long durations | implicit (e.g. Preissmann, see [1D unsteady hydraulics](../../06-1d-unsteady-hydraulics/notes/02-boundary-conditions-and-implicit-schemes.md)) |
+
+:::{admonition} Practice: A kerosene spill (advection–diffusion)
+:class: important
+Test yourself with the exercise **[A kerosene spill (advection–diffusion)](../exercises/advection-diffusion-spill/index.md)**.
+:::
 
 ## Check your understanding
 

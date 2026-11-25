@@ -13,8 +13,6 @@ After this lesson you should be able to:
 - write the schemes with loops and then with array slicing
 :::
 
-Companion notebook: [Simple PDE: advection](../completed/13_SimplePDE_Advection.ipynb).
-
 ## Problem
 
 $$\frac{\partial u}{\partial t}=-c\frac{\partial u}{\partial x},\qquad u(x,0)=f(x).$$
@@ -105,6 +103,11 @@ These give the same numbers as the loops (check with `np.allclose`) and are roug
 - **FTBS** after 25 steps ($t=0.5$): the square wave has moved to the right by about the right amount, but the sharp edges are smeared. The scheme is stable here but numerically *diffusive*, behaving as though a diffusion term had been added. Compare with the analytic solution (the initial profile shifted by $ct$).
 - With a periodic boundary condition (`u[0] = u[-1]`) run for a long time (75 steps, $t=1.5$), the profile is smeared further into a smooth bump that wraps around the domain.
 - **FTCS** is more accurate in space (second order) but, run for the same time, produces large growing oscillations (values below 0 and above 3 for a wave that should stay between 1 and 2). The scheme is unstable for this equation, however small the time step. Accuracy in space alone is not enough: the combination of time and space schemes determines stability.
+
+:::{admonition} Hands-on: Simple PDE: advection
+:class: note
+Run FTBS and FTCS on the square wave yourself. Work through **[Simple PDE: advection](../completed/13_SimplePDE_Advection.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/05-pdes/notebooks/13_SimplePDE_Advection.ipynb>) and fill in the blanks yourself.
+:::
 
 This motivates asking: *Other methods?* The next two notes explain why FTCS fails and FTBS smears ([stability and the CFL condition](03-stability-cfl-and-von-neumann.md)) and introduce the alternatives ([upwind, Lax and implicit schemes](04-upwind-lax-and-implicit-schemes.md)).
 

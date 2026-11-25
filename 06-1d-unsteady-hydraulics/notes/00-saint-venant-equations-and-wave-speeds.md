@@ -14,8 +14,6 @@ After this lesson you should be able to:
 - compute the CFL limit for the explicit schemes
 :::
 
-Companion notebook: [Dam-break flow with the Lax and MacCormack schemes](../completed/15_DamBreak_Lax_MacCormack.ipynb).
-
 The 1D equations for unsteady open-channel flow are the depth-and-cross-section-averaged mass and momentum equations introduced in [module 01](../../01-governing-equations/notes/01-components-of-a-model-and-governing-equations.md). Here we derive them, identify the waves they carry, and find the stability limit for the explicit schemes in the [next note](01-governing-equations-and-explicit-schemes.md).
 
 ## Assumptions
@@ -83,6 +81,8 @@ The **Froude number** $Fr=|u|/c$ decides how the characteristics are oriented:
 ![Dam-break solution: rarefaction, middle state and bore](../figures/dam-break-structure.svg)
 
 *Figure: Exact dam-break solution for $h_L=10$ m and $h_R=5$ m: a rarefaction fan moves upstream and a bore moves downstream, separated by a constant middle state ($h_m\approx7.27$ m).*
+
+You will reproduce this wave pattern numerically in the [next lesson](01-governing-equations-and-explicit-schemes.md), with the [dam-break notebook](../completed/15_DamBreak_Lax_MacCormack.ipynb).
 
 ## Which terms matter? Simplified wave models
 

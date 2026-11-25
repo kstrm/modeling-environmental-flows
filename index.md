@@ -14,7 +14,7 @@ Graduate and advanced undergraduate students in civil and environmental engineer
 
 ## How the course is organized
 
-Each module contains lesson notes, notebooks to work through, and exercises.
+Each module contains lesson notes, notebooks to work through, and exercises. The notebooks and exercises appear **inline**, at the point in the lessons where they apply, so you can simply keep clicking *Next* at the bottom of each page and move through the material in order. Each module's home page also lists everything in one place.
 
 | Module | Topics |
 |---|---|

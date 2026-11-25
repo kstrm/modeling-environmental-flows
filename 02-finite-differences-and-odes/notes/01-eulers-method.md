@@ -78,7 +78,11 @@ Compare with the analytic solution, which satisfies the same initial condition:
 
 $$\xi(t)=-\frac{2}{4}t^4+\frac{12}{3}t^3-\frac{20}{2}t^2+8.5\,t+1.$$
 
-Work through this in the notebook [Euler method](../completed/01_Euler_Method.ipynb).
+
+:::{admonition} Hands-on: Euler's method
+:class: note
+Now see the method run on the example above. Work through **[Euler's method](../completed/01_Euler_Method.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/02-finite-differences-and-odes/notebooks/01_Euler_Method.ipynb>) and fill in the blanks yourself.
+:::
 
 ## Check your understanding
 

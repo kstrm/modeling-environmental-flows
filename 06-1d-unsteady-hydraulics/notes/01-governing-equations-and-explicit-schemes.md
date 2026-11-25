@@ -73,6 +73,11 @@ A predictor–corrector method that uses a backward difference in the predictor 
 
 The result is second-order accurate in space and time and captures shocks, which matters in fluvial hydraulics where flow can pass through critical depth.
 
+:::{admonition} Hands-on: Dam-break flow with Lax and MacCormack
+:class: note
+Apply the Lax and MacCormack schemes to a dam break. Work through **[Dam-break flow with Lax and MacCormack](../completed/15_DamBreak_Lax_MacCormack.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/06-1d-unsteady-hydraulics/notebooks/15_DamBreak_Lax_MacCormack.ipynb>) and fill in the blanks yourself.
+:::
+
 ## Example: a shock-capturing scheme for a steep, flashy stream
 
 **Motivation.** Steep, ephemeral, flash-flood-prone streams (e.g. the Texas Hill Country, with steep slopes and mixed bedrock–alluvial beds) can switch rapidly between subcritical and supercritical flow (*transcritical* flow), and a roadway crossing of such a stream can be overtopped within minutes. Modeling the flow and the bed change together requires a scheme that handles transcritical flow.

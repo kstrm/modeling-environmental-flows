@@ -21,8 +21,6 @@ RK4 is applied to each equation, with every slope evaluation using the current e
 
 $$y^{1}_{i+1}=y^{1}_i+\frac{\Delta x}{6}\left(K^1_1+2K^1_2+2K^1_3+K^1_4\right),\qquad y^{2}_{i+1}=y^{2}_i+\frac{\Delta x}{6}\left(K^2_1+2K^2_2+2K^2_3+K^2_4\right).$$
 
-Companion notebooks: [Method 1 (explicit coefficients)](../completed/05_ODESys-Method1-RK4.ipynb), [A note on multidimensional arrays](../completed/06_A-note-on-multidimensional-arrays.ipynb), [Method 2 (arrays)](../completed/07_ODESys-Method2-RK4-array.ipynb) and [Method 3 (`solve_ivp`)](../completed/08_ODESys-Method3-solve_ivp.ipynb).
-
 ## Example: predator–prey (rabbits and foxes)
 
 $$\frac{dR}{dt}=aR-bRF,\qquad\frac{dF}{dt}=-lF+kRF,$$
@@ -47,6 +45,11 @@ for i in range(N - 1):
     y2[i+1] = y2[i] + (dt/6)*(K1F + 2*K2F + 2*K3F + K4F)
 ```
 
+:::{admonition} Hands-on: ODE systems, Method 1: explicit coefficients
+:class: note
+Write out every coefficient once, to see exactly what the scheme does. Work through **[ODE systems, Method 1: explicit coefficients](../completed/05_ODESys-Method1-RK4.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/02-finite-differences-and-odes/notebooks/05_ODESys-Method1-RK4.ipynb>) and fill in the blanks yourself.
+:::
+
 ### Method 2: arrays
 
 Store the unknowns in one 2D array `y` with shape `(2, N)` (row 0 rabbits, row 1 foxes), and let `f` return a 1D array of both slopes. The RK4 loop is then written once, identical to the single-equation case, with `y[:, i]` passing all variables at index `i`:
@@ -66,9 +69,19 @@ for i in range(N - 1):
     y[:, i+1] = y[:, i] + (dt/6)*(K1 + 2*K2 + 2*K3 + K4)
 ```
 
+:::{admonition} Hands-on: ODE systems, Method 2: arrays
+:class: note
+Store the system in one array and write the loop once. Work through **[ODE systems, Method 2: arrays](../completed/07_ODESys-Method2-RK4-array.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/02-finite-differences-and-odes/notebooks/07_ODESys-Method2-RK4-array.ipynb>) and fill in the blanks yourself.
+:::
+
 ## Indexing multidimensional arrays
 
 In `x[a, b, c]` the first index selects which array (matrix), the next the row, and the last the position within the row. For an array of shape `(3, 4)` (3 sets of arrays of length 4), `x2[2, 0]` is the first value of the third row and `x2[1, :]` is the whole second row. For a `(3, 4, 5)` array, `x3[0, 0, 3]` is the 4th value in the first row of the first matrix, and `x3[1, :, -1]` is the last column of the second matrix. Useful properties are `.ndim`, `.shape` and `.size`. For paired $x,y$ values on a grid, use `np.mgrid` or `np.meshgrid`, e.g. to evaluate and contour a function of two variables. For more, see the *Python Data Science Handbook*, "The Basics of NumPy Arrays".
+
+:::{admonition} Hands-on: A note on multidimensional arrays
+:class: note
+Practice the array indexing used above. Work through **[A note on multidimensional arrays](../completed/06_A-note-on-multidimensional-arrays.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/02-finite-differences-and-odes/notebooks/06_A-note-on-multidimensional-arrays.ipynb>) and fill in the blanks yourself.
+:::
 
 ## Method 3: SciPy's `solve_ivp`
 
@@ -92,6 +105,16 @@ sol = solve_ivp(df, (0, 50), ic, t_eval=t)    # sol.t: times, sol.y: shape (2, l
 By default `solve_ivp` uses an adaptive Runge-Kutta method (`RK45`, Dormand-Prince): it chooses its own internal step size to meet the tolerances `rtol` and `atol`, and `t_eval` only controls where the solution is reported. Other methods are chosen with `method=` (`RK23`, `DOP853`, and the implicit `Radau` and `BDF` for stiff problems). The result object holds `sol.t`, `sol.y` and diagnostics such as `sol.nfev`, the number of function evaluations.
 
 Note the array layout is the same as Method 2: `sol.y[0]` is rabbits and `sol.y[1]` is foxes, one row per variable. Use `ax.plot(t, sol.y.T)` to plot both at once. The older `odeint` interface, which takes `f(y, t)` and returns the transpose, is still found in a lot of code, but new code should use `solve_ivp`.
+
+:::{admonition} Hands-on: ODE systems, Method 3: solve_ivp
+:class: note
+Compare a library solver with your own RK4. Work through **[ODE systems, Method 3: solve_ivp](../completed/08_ODESys-Method3-solve_ivp.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/02-finite-differences-and-odes/notebooks/08_ODESys-Method3-solve_ivp.ipynb>) and fill in the blanks yourself.
+:::
+
+:::{admonition} Practice: Accuracy and stability of Euler and Runge–Kutta
+:class: important
+Test yourself with the exercise **[Accuracy and stability of Euler and Runge–Kutta](../exercises/euler-accuracy-stability/index.md)**.
+:::
 
 ## Check your understanding
 

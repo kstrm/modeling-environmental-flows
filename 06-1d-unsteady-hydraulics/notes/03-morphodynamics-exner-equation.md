@@ -52,6 +52,11 @@ where $C_f$ is a resistance (friction) coefficient.
 
 Both increase rapidly with shear stress, so small changes in flow can produce large changes in transport, and the bed responds on a much longer time scale than the water. This difference in time scales is why many models solve the hydraulics, update the bed, and repeat (a *loose coupling*), and why long-term simulations use sequences of steady or quasi-unsteady flows rather than resolving every flood wave.
 
+:::{admonition} Practice: Capstone project ideas
+:class: important
+Test yourself with the exercise **[Capstone project ideas](../exercises/capstone-projects/index.md)**.
+:::
+
 ## Check your understanding
 
 **1.** Write the Exner equation.

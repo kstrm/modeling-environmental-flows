@@ -62,6 +62,11 @@ Typical solutions show $w$ and $Q$ increasing monotonically with distance, while
 
 References: Keyvani and Strom (2016); Hetland and MacDonald (2008).
 
+:::{admonition} Practice: Tar River backwater and a buoyant river plume
+:class: important
+Test yourself with the exercise **[Tar River backwater and a buoyant river plume](../exercises/tar-river-and-plume/index.md)**.
+:::
+
 ## Check your understanding
 
 **1.** What are the five unknowns, and what are the equations?

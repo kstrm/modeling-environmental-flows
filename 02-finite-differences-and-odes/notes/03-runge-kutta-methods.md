@@ -15,8 +15,6 @@ After this lesson you should be able to:
 
 Runge–Kutta (RK) methods are higher-order, single-step schemes commonly used for ODEs. They were developed around 1900 by C. D. T. Runge, a German mathematician often called the father of numerical methods, and M. W. Kutta, an aerodynamicist.
 
-Companion notebook: [4th-order Runge–Kutta, initial scheme and one ODE](../completed/03_4th-Order_Runge-Kutta_InitialScheme_1ODE.ipynb).
-
 ## Central idea
 
 Take multiple steps across a single step, using intermediate evaluations of the slope. For $dy/dt=g(y,t)$, a simple example is the **midpoint method**:
@@ -93,6 +91,11 @@ for i in range(len(x) - 1):
 ```
 
 The notebook then wraps the scheme in functions (`setup`, `RK4`) so the right-hand side and the domain can be swapped easily.
+
+:::{admonition} Hands-on: 4th-order Runge–Kutta for one ODE
+:class: note
+Build RK4 yourself and compare it with Euler. Work through **[4th-order Runge–Kutta for one ODE](../completed/03_4th-Order_Runge-Kutta_InitialScheme_1ODE.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/02-finite-differences-and-odes/notebooks/03_4th-Order_Runge-Kutta_InitialScheme_1ODE.ipynb>) and fill in the blanks yourself.
+:::
 
 ## Multistep methods
 

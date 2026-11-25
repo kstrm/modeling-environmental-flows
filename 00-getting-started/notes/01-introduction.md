@@ -122,6 +122,16 @@ Numerical methods solve the governing equations for complex environments:
 - Common environments: CoCalc (online), IPython terminal, Spyder IDE (Matlab-like), Jupyter notebook, JupyterLab.
 - If you have a problem to solve, you can most likely find a library to help, and it is probably on GitHub.
 
+:::{admonition} Hands-on: Intro to Python and Jupyter notebooks
+:class: note
+You can now try the tools yourself. Work through **[Intro to Python and Jupyter notebooks](../completed/00_Intro_Python_JupyterNotebooks.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/00-getting-started/notebooks/00_Intro_Python_JupyterNotebooks.ipynb>) and fill in the blanks yourself.
+:::
+
+:::{admonition} Practice: Python basics
+:class: important
+Test yourself with the exercise **[Python basics](../exercises/python-basics.ipynb)** or [open it in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/00-getting-started/exercises/python-basics.ipynb>).
+:::
+
 ### What is HEC-RAS?
 
 Designed to perform one- and two-dimensional hydraulic calculations for a full network of natural and constructed channels (US Army Corps of Engineers, Hydrologic Engineering Center).

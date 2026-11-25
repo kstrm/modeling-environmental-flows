@@ -15,8 +15,6 @@ After this lesson you should be able to:
 
 A tank of diameter $D$ has a drain of diameter $d$ at the bottom. We want the water depth $h=h(t)$ and the time to drain. This is an **unsteady** problem, different from the typical steady problems in an undergraduate course.
 
-Companion notebook: [4th-order Runge–Kutta, tank example](../completed/04_4th-Order_Runge-Kutta_TankExample.ipynb).
-
 ![Draining tank and well-mixed tank schematics](../figures/tank-schematics.svg)
 
 *Figure: A draining tank (left) and a well-mixed tank carrying a dissolved substance (right).*
@@ -62,6 +60,11 @@ $$t_{drain}=\frac{D^2}{d^2}\sqrt{\frac{2h_0}{g}}.$$
 ## Numerical solution
 
 The equation has the form $dh/dt=g(h)$ with $g(h)=-\dfrac{d^2}{D^2}\sqrt{2gh}$. Solve it with 4th-order Runge–Kutta (see the [Runge–Kutta note](../../02-finite-differences-and-odes/notes/03-runge-kutta-methods.md)) and compare with the analytic solution above, which provides the check on the implementation.
+
+:::{admonition} Hands-on: Draining tank with RK4
+:class: note
+Solve the tank equation with RK4 and compare it with the analytic solution. Work through **[Draining tank with RK4](../completed/04_4th-Order_Runge-Kutta_TankExample.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/03-ode-applications/notebooks/04_4th-Order_Runge-Kutta_TankExample.ipynb>) and fill in the blanks yourself.
+:::
 
 ## A note on the end of the run
 

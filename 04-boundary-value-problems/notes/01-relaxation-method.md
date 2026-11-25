@@ -16,8 +16,6 @@ After this lesson you should be able to:
 
 Reference: Chapter 5 of Aref and Balachandar (2018).
 
-Companion notebooks: [Linear system example](../completed/10_LinearSystemExample.ipynb) and [Poiseuille–Couette flow](../completed/11_BCproblem_Poiseuille-Couette.ipynb).
-
 ## Overview
 
 - **Initial value problem:** an initial condition (IC) at one end, and we keep marching.
@@ -62,6 +60,11 @@ X = linalg.solve(A, B)          # [23., 12.]
 ```
 
 Prefer `solve` to forming the inverse explicitly. (NumPy also provides `np.linalg.solve`.) Use plain 2D `np.array` objects for matrices (not the legacy `np.matrix`), and write matrix products with `@`: on arrays, `*` multiplies element by element, so `np.linalg.inv(A) * B` does **not** give the solution while `np.linalg.inv(A) @ B` does.
+
+:::{admonition} Hands-on: Linear system example
+:class: note
+Solve a small linear system first. Work through **[Linear system example](../completed/10_LinearSystemExample.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/04-boundary-value-problems/notebooks/10_LinearSystemExample.ipynb>) and fill in the blanks yourself.
+:::
 
 ## Example: Poiseuille–Couette flow
 
@@ -132,6 +135,11 @@ The results are identical to the loop version. Writing the loop version first ma
 $$\frac{u}{U_t}=P\frac zh\left(1-\frac zh\right)+\frac zh,\qquad P=-\frac{Gh^2}{2\mu U_t}=\frac{h^2}{2\mu U_t}\left(-\frac{dp}{dx}\right).$$
 
 The numerical and analytic profiles lie on top of each other. Varying $P$ from $-3$ to $3$ shows the transition from pure Couette flow ($P=0$, a linear profile) to flows with a favorable pressure gradient (velocity exceeding $U_t$ in the interior) and an adverse gradient (reversed flow near the bottom).
+
+:::{admonition} Hands-on: Poiseuille–Couette flow
+:class: note
+Build the matrix, impose the boundary conditions and compare with the analytic solution. Work through **[Poiseuille–Couette flow](../completed/11_BCproblem_Poiseuille-Couette.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/04-boundary-value-problems/notebooks/11_BCproblem_Poiseuille-Couette.ipynb>) and fill in the blanks yourself.
+:::
 
 ## Check your understanding
 

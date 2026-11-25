@@ -14,8 +14,6 @@ After this lesson you should be able to:
 - explain numerical diffusion from the truncation error
 :::
 
-Companion notebook: [Stability and accuracy of schemes for advection and diffusion](../completed/14_AdvectionDiffusion_Schemes_Stability.ipynb).
-
 The [previous note](02-advection-equation-ftbs-ftcs.md) showed that FTBS smears a square wave while FTCS blows up. Here we explain why, and give tools to decide beforehand whether a scheme will work.
 
 ## Three properties of a scheme
@@ -100,6 +98,11 @@ $$\nu+2r\le1.$$
 | Lax–Wendroff | $O(\Delta t^2,\Delta x^2)$ | $\nu\le1$ | accurate, oscillates at jumps |
 
 The next note covers Lax, Lax–Wendroff, upwinding for variable direction, and implicit methods.
+
+:::{admonition} Hands-on: Stability and accuracy of advection–diffusion schemes
+:class: note
+Compare the schemes at different Courant numbers and find the stability limits. Work through **[Stability and accuracy of advection–diffusion schemes](../completed/14_AdvectionDiffusion_Schemes_Stability.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/05-pdes/notebooks/14_AdvectionDiffusion_Schemes_Stability.ipynb>) and fill in the blanks yourself.
+:::
 
 ## Caveats
 

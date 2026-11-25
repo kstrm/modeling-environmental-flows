@@ -16,8 +16,6 @@ After this lesson you should be able to:
 
 So far we have studied initial value problems, which develop in time or space but have no definite end. As we move toward PDEs we turn to (1) general spatial discretization on a domain with a finite end and (2) boundary value problems. Reference: Chapter 4 of Aref and Balachandar (2018).
 
-Companion notebook: [Classic finite differences with Bokeh](../../05-pdes/completed/09_ClassicFD_Bokeh.ipynb).
-
 ## The grid
 
 Consider a domain of length $L$ divided into $N$ segments:
@@ -109,6 +107,11 @@ df_c[1:-1] = (f[2:] - f[:-2]) / (x[2:]  - x[:-2])     # central
 ```
 
 Each is compared with the analytic $\cos x$. The end points are not set by the central difference (they need a one-sided formula or a boundary condition). The notebook uses the interactive plotting library Bokeh alongside matplotlib.
+
+:::{admonition} Hands-on: Classic finite differences with Bokeh
+:class: note
+Compute and plot the three differences for $\sin x$ and compare them with $\cos x$. Work through **[Classic finite differences with Bokeh](../../05-pdes/completed/09_ClassicFD_Bokeh.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/05-pdes/notebooks/09_ClassicFD_Bokeh.ipynb>) and fill in the blanks yourself.
+:::
 
 ## Matrix derivative operator
 
