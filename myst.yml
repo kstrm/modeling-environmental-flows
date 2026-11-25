@@ -75,3 +75,5 @@ project:
     - file: references.md
 site:
   template: book-theme
+  options:
+    logo_text: Modeling of Environmental Flows
