@@ -96,6 +96,27 @@ r[0], r[N] = Ub, Ut
 u = linalg.solve(D2, -r)
 ```
 
+### Without loops
+
+The loop that fills `D2` can be replaced by assembling the matrix from diagonals, and several pressure gradients can be solved in one call because `linalg.solve` accepts a matrix of right-hand sides, one column per case. The matrix is factored once and reused for every column.
+
+```python
+# D2 from diagonals (instead of the loop)
+D2 = (np.diag(-2*np.ones(N + 1)) + np.diag(np.ones(N), -1) + np.diag(np.ones(N), 1)) / dz**2
+D2[0, :] = D2[N, :] = 0                # clear boundary rows ...
+D2[0, 0] = D2[N, N] = -1               # ... and impose the boundary conditions
+
+# all P values at once
+P_values = np.array([-3, -2, -1, 0, 1, 2, 3])
+G = -2 * mu * Ut * P_values / h**2
+R = np.zeros((N + 1, len(P_values)))   # one column per case
+R[1:N, :] = -G / mu
+R[0, :], R[N, :] = Ub, Ut
+U = linalg.solve(D2, -R)               # column k is the profile for P_values[k]
+```
+
+The results are identical to the loop version. Writing the loop version first makes it clear what each row of the matrix means; the vectorized version is what you would use once that is clear.
+
 **Analytic solution** (for constant $\mu$ and $U_b=0$):
 
 $$\frac{u}{U_t}=P\frac zh\left(1-\frac zh\right)+\frac zh,\qquad P=-\frac{Gh^2}{2\mu U_t}=\frac{h^2}{2\mu U_t}\left(-\frac{dp}{dx}\right).$$
