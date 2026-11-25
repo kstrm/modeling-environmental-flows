@@ -2,7 +2,9 @@
 
 An open, hands-on course on numerical modeling of flow and transport in rivers, estuaries and other natural environments, taught with Python and Jupyter notebooks.
 
-The course book is built with [Jupyter Book](https://jupyterbook.org) and published with GitHub Pages. Start with `index.md`, or read it online once the site is deployed.
+**Read the course online: [kstrm.github.io/modeling-environmental-flows](https://kstrm.github.io/modeling-environmental-flows/)**
+
+The course book is built with [Jupyter Book](https://jupyterbook.org) and published with GitHub Pages.
 
 ## Layout
 
