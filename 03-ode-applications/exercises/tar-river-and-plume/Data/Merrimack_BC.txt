@@ -1,0 +1,9 @@
+Critical Frd for lift off	1.1
+Inlet Q [cms]	1750
+Inlet width [m]	276
+Salinity of inflow [ppt]	5
+Salinity of ambient [ppt]	35
+Inflow water temp [C]	5
+Ambient water temp [C]	2
+Entrainment velocity ratio	0.005
+Length of simulation [m]	5000

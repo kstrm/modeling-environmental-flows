@@ -1,0 +1,54 @@
+---
+title: River Mouth Plume Model
+---
+
+# River Mouth Plume Model
+
+A steady, 1D (layer-averaged) model of a buoyant river plume entering a lake, reservoir or ocean, using top-hat profiles. The formulation follows Keyvani and Strom (2016), and the spreading closure follows Hetland and MacDonald (2008).
+
+## Setup
+
+- The discharge $Q_0$ leaves a river mouth of width $w_0$ and depth $h_0$ as a detached slot jet over ambient water of density $\rho_a$ (the plume has density $\rho<\rho_a$, $\Delta\rho=\rho_a-\rho$).
+- Most slot-jet formulations are for $w/h=O(1)$. For rivers, $w/h\gg1$, so lateral spreading must be accounted for by a mechanism other than entrainment.
+- We care only about the plume hydraulics: the plume widens ($w=w(x)$) and deepens ($h=h(x)$), entrains ambient water ($Q=Q(x)$), slows ($u=u(x)$) and dilutes ($\Delta\rho=\Delta\rho(x)$).
+
+**Five unknowns** need five equations: $Q$, $u$, $w$, $h$, $\Delta\rho$. The definition $Q=hwu$ is one. Conservation principles supply the others: (1) fluid mass, (2) fluid volume, (3) fluid momentum, and (4) an ad hoc closure for the spreading rate. An entrainment law is still needed.
+
+## Equations
+
+**(1) Conservation of mass** (the buoyancy deficit $Q\Delta\rho$ is conserved):
+
+$$\frac{d}{dx}(Q\,\Delta\rho)=0\;\Rightarrow\;\frac{d\Delta\rho}{dx}=-\frac{\Delta\rho}{Q}\frac{dQ}{dx}.$$
+
+Using $Q=hwu$ this can be rearranged to give the depth change,
+
+$$\frac{dh}{dx}=-h\left(\frac1{\Delta\rho}\frac{d\Delta\rho}{dx}+\frac1w\frac{dw}{dx}+\frac1u\frac{du}{dx}\right).\tag{A3}$$
+
+**(2) Conservation of volume:** the plume gains volume only by entrainment through its base at the entrainment velocity $w_e$,
+
+$$\frac{dQ}{dx}=w_ew\;\Rightarrow\;\frac{d\Delta\rho}{dx}=-\frac{\Delta\rho}{Q}w_ew=-\frac{\Delta\rho\,w_e}{uh}.\tag{A5}$$
+
+**(3) Conservation of momentum:**
+
+$$\frac{d}{dx}\left(u^2hw\right)=-\frac{d}{dx}\left(g'\frac{h^2}{2}w\right)+g'\frac{h^2}{2}\frac{dw}{dx},$$
+
+with the change in momentum on the left and hydrostatic forces on the right. With $Ri=g'h/u^2$ this can be written
+
+$$\frac{du}{dx}=\frac{u}{1-Ri}\left[\left(1+\frac{Ri}{2}\right)\frac1{\Delta\rho}\frac{d\Delta\rho}{dx}+Ri\,\frac1w\frac{dw}{dx}\right].\tag{A12}$$
+
+**(4) Spreading rate:** Hetland and MacDonald (2008) observed that the lateral spreading rate at each edge goes as the interfacial wave speed $c_{interface}=\sqrt{g'h}$, with $g'=\dfrac{\rho_a-\rho}{\rho_a}g$. Then
+
+$$\frac{dw}{dx}=2Ri^{1/2}=\frac{2\sqrt{g'h}}{u}.\tag{A13}$$
+
+(Here $dx=u\,dt$, so the speed per unit time converts to a rate per unit distance.)
+
+## Closure and solution
+
+There are now four equations (A3, A5, A12, A13) for four primary unknowns, $u(x)$, $h(x)$, $w(x)$ and $\Delta\rho(x)$. We still need:
+
+- initial conditions: $u_0$, $h_0$, $w_0$, $\Delta\rho_0$, and
+- an entrainment law for $\delta=w_e/u$, such as the Richardson-number dependent form introduced in the [stratified flows note](04-stratified-flows-jets-and-plumes.md).
+
+Typical solutions show $w$ and $Q$ increasing monotonically with distance, while $u$ and $\Delta\rho$ decrease and $h$ grows and levels off.
+
+References: Keyvani and Strom (2016); Hetland and MacDonald (2008).

@@ -1,0 +1,4 @@
+# sediment
+Co = 1             # in [g/L or kg/m^3]
+d = 62            # sediment diameter in [microns]
+rho_s = 2650       # sediment density in [kg/m^3]

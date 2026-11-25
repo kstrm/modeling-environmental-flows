@@ -1,0 +1,13 @@
+.ipynb_checkpoints/
+.DS_Store
+__pycache__/
+*.pyc
+_build/
+*.mp4
+*.mov
+
+# private: homework solutions are kept out of the public repo and the book
+_private/
+
+# Jupyter Book build output
+_build/

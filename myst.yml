@@ -1,0 +1,77 @@
+version: 1
+project:
+  title: Modeling of Environmental Flows
+  description: A hands-on course on numerical modeling of flow and transport in rivers, estuaries and other natural environments, taught with Python and Jupyter notebooks.
+  authors:
+    - name: Kyle Strom
+  github: kstrm/modeling-environmental-flows
+  exclude:
+    - README.md
+    - _private/**
+    - "**/.ipynb_checkpoints/**"
+    - "*/notebooks/**"
+  toc:
+    - file: index.md
+    - title: "00 Getting started"
+      children:
+        - file: 00-getting-started/index.md
+        - file: 00-getting-started/notes/01-introduction.md
+        - file: 00-getting-started/completed/00_Intro_Python_JupyterNotebooks.ipynb
+        - file: 00-getting-started/exercises/python-basics.ipynb
+    - title: "01 Governing equations and model resolution"
+      children:
+        - file: 01-governing-equations/index.md
+        - file: 01-governing-equations/notes/01-components-of-a-model-and-governing-equations.md
+        - file: 01-governing-equations/notes/02-reading-guide-cfd-in-perspective.md
+    - title: "02 Finite differences and ODE initial value problems"
+      children:
+        - file: 02-finite-differences-and-odes/index.md
+        - file: 02-finite-differences-and-odes/notes/01-eulers-method.md
+        - file: 02-finite-differences-and-odes/notes/02-accuracy-taylor-series-and-stability.md
+        - file: 02-finite-differences-and-odes/notes/03-runge-kutta-methods.md
+        - file: 02-finite-differences-and-odes/notes/04-systems-of-odes.md
+        - file: 02-finite-differences-and-odes/notes/05-adams-bashforth-moulton.md
+        - file: 02-finite-differences-and-odes/notes/06-spatial-discretization.md
+        - file: 02-finite-differences-and-odes/completed/01_Euler_Method.ipynb
+        - file: 02-finite-differences-and-odes/completed/02_Euler_Method-Stability.ipynb
+        - file: 02-finite-differences-and-odes/completed/03_4th-Order_Runge-Kutta_InitialScheme_1ODE.ipynb
+        - file: 02-finite-differences-and-odes/completed/05_ODESys-Method1-RK4.ipynb
+        - file: 02-finite-differences-and-odes/completed/06_A-note-on-multidimensional-arrays.ipynb
+        - file: 02-finite-differences-and-odes/completed/07_ODESys-Method2-RK4-array.ipynb
+        - file: 02-finite-differences-and-odes/completed/08_ODESys-Method3-odeint.ipynb
+        - file: 02-finite-differences-and-odes/exercises/euler-accuracy-stability/index.md
+    - title: "03 ODE applications"
+      children:
+        - file: 03-ode-applications/index.md
+        - file: 03-ode-applications/notes/01-draining-tank.md
+        - file: 03-ode-applications/notes/02-initial-value-odes-in-natural-systems.md
+        - file: 03-ode-applications/notes/03-steady-1d-hydraulics-gvf.md
+        - file: 03-ode-applications/notes/04-stratified-flows-jets-and-plumes.md
+        - file: 03-ode-applications/notes/05-river-mouth-plume.md
+        - file: 03-ode-applications/completed/04_4th-Order_Runge-Kutta_TankExample.ipynb
+        - file: 03-ode-applications/exercises/tar-river-and-plume/index.md
+    - title: "04 Boundary value problems"
+      children:
+        - file: 04-boundary-value-problems/index.md
+        - file: 04-boundary-value-problems/notes/01-relaxation-method.md
+        - file: 04-boundary-value-problems/notes/02-shooting-method.md
+        - file: 04-boundary-value-problems/completed/10_LinearSystemExample.ipynb
+        - file: 04-boundary-value-problems/completed/11_BCproblem_Poiseuille-Couette.ipynb
+        - file: 04-boundary-value-problems/completed/12_BCproblem_Blasius.ipynb
+    - title: "05 PDEs: advection and diffusion"
+      children:
+        - file: 05-pdes/index.md
+        - file: 05-pdes/notes/01-pdes-classification-and-model-equations.md
+        - file: 05-pdes/notes/02-advection-equation-ftbs-ftcs.md
+        - file: 05-pdes/completed/09_ClassicFD_Bokeh.ipynb
+        - file: 05-pdes/completed/13_SimplePDE_Advection.ipynb
+        - file: 05-pdes/exercises/advection-diffusion-spill/index.md
+    - title: "06 1D unsteady hydraulics"
+      children:
+        - file: 06-1d-unsteady-hydraulics/index.md
+        - file: 06-1d-unsteady-hydraulics/notes/01-governing-equations-and-explicit-schemes.md
+        - file: 06-1d-unsteady-hydraulics/notes/02-boundary-conditions-and-implicit-schemes.md
+        - file: 06-1d-unsteady-hydraulics/exercises/capstone-projects/index.md
+    - file: references.md
+site:
+  template: book-theme
