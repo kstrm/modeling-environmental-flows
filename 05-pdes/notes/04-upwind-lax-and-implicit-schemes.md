@@ -34,6 +34,17 @@ $$u_i^{n+1}=u_i^n-\frac\nu2\left(u_{i+1}^n-u_{i-1}^n\right)+\frac{\nu^2}2\left(u
 
 It is second order in both time and space and stable for $|\nu|\le1$. The added second-difference term supplies exactly enough diffusion to stabilize FTCS. It gives much sharper fronts than upwinding, but it oscillates (overshoots and undershoots) near discontinuities.
 
+Vectorized in space, the interior update for the Lax and Lax–Wendroff schemes is, with `nu = c*dt/dx`:
+
+```python
+# Lax
+u[1:-1] = 0.5*(un[2:] + un[:-2]) - 0.5*nu*(un[2:] - un[:-2])
+
+# Lax-Wendroff
+u[1:-1] = (un[1:-1] - 0.5*nu*(un[2:] - un[:-2])
+           + 0.5*nu**2*(un[2:] - 2*un[1:-1] + un[:-2]))
+```
+
 ### Accuracy versus monotonicity
 
 Upwind gives a monotone, smeared solution; Lax–Wendroff gives a sharp solution with wiggles. **Godunov's theorem** says that no *linear* scheme of higher than first order can be monotone. Modern schemes such as TVD methods (total variation diminishing, with flux limiters) get around this by being *nonlinear*: they behave like Lax–Wendroff where the solution is smooth and like upwind near sharp fronts. The TVD step in the MacCormack scheme used for shock capturing in [1D unsteady hydraulics](../../06-1d-unsteady-hydraulics/notes/01-governing-equations-and-explicit-schemes.md) is of this type.

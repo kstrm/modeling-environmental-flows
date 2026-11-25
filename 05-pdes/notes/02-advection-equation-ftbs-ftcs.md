@@ -71,6 +71,26 @@ for n in range(1, 25):
         u[i] = un[i] - c*dt/(2*dx)*(un[i+1] - un[i-1])
 ```
 
+### A vectorized version
+
+The double loop is the clearest way to see the scheme, but NumPy can update every grid point of one time step in a single array operation. Slicing does the work: `un[1:]` holds the $u_i$ and `un[:-1]` holds the $u_{i-1}$.
+
+```python
+# FTBS, vectorized in space (the loop over time stays)
+u = u0.copy()
+for n in range(1, 25):
+    un = u.copy()
+    u[1:] = un[1:] - c*dt/dx*(un[1:] - un[:-1])
+
+# FTCS, vectorized in space
+u = u0.copy()
+for n in range(1, 25):
+    un = u.copy()
+    u[1:-1] = un[1:-1] - c*dt/(2*dx)*(un[2:] - un[:-2])
+```
+
+These give the same numbers as the loops (check with `np.allclose`) and are roughly 10 to 100 times faster, more so on finer grids. The time loop cannot be vectorized because each step needs the one before it. The companion notebook times both versions.
+
 **Observations**
 
 - **FTBS** after 25 steps ($t=0.5$): the square wave has moved to the right by about the right amount, but the sharp edges are smeared. The scheme is stable here but numerically *diffusive*, behaving as though a diffusion term had been added. Compare with the analytic solution (the initial profile shifted by $ct$).
