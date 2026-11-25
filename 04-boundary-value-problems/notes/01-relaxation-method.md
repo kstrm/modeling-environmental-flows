@@ -4,6 +4,16 @@ title: Boundary Value ODEs - The Relaxation Method
 
 # Boundary Value ODEs: The Relaxation Method
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- explain why a boundary value problem is solved all at once rather than by marching
+- build the second-derivative matrix and impose boundary conditions in its first and last rows
+- solve the resulting linear system with `linalg.solve` instead of forming an inverse
+- interpret the Poiseuille–Couette solution as the pressure gradient varies
+:::
+
 Reference: Chapter 5 of Aref and Balachandar (2018).
 
 Companion notebooks: [Linear system example](../completed/10_LinearSystemExample.ipynb) and [Poiseuille–Couette flow](../completed/11_BCproblem_Poiseuille-Couette.ipynb).
@@ -122,3 +132,35 @@ The results are identical to the loop version. Writing the loop version first ma
 $$\frac{u}{U_t}=P\frac zh\left(1-\frac zh\right)+\frac zh,\qquad P=-\frac{Gh^2}{2\mu U_t}=\frac{h^2}{2\mu U_t}\left(-\frac{dp}{dx}\right).$$
 
 The numerical and analytic profiles lie on top of each other. Varying $P$ from $-3$ to $3$ shows the transition from pure Couette flow ($P=0$, a linear profile) to flows with a favorable pressure gradient (velocity exceeding $U_t$ in the interior) and an adverse gradient (reversed flow near the bottom).
+
+## Check your understanding
+
+**1.** Why can't a boundary value problem be marched from one end like an initial value problem?
+
+:::{dropdown} Answer
+Conditions are given at both ends rather than only at the start, so all the grid values are coupled and are found together by solving a system of equations.
+:::
+
+**2.** How does the first row of the matrix impose $u(0)=U_b$?
+
+:::{dropdown} Answer
+The row is $-1$ on the diagonal with zeros elsewhere and the right-hand side holds $U_b$, so it reads $-u_1=-U_b$, i.e. $u_1=U_b$.
+:::
+
+**3.** What does an interior row of $D_2$ look like?
+
+:::{dropdown} Answer
+$[1,\,-2,\,1]/\Delta z^2$ centered on the diagonal.
+:::
+
+**4.** Why use `linalg.solve(A, B)` rather than `inv(A) @ B`?
+
+:::{dropdown} Answer
+It is faster and more accurate, and it is what we use for the larger systems that follow.
+:::
+
+**5.** How does the Poiseuille–Couette profile change with $P$?
+
+:::{dropdown} Answer
+$P=0$ gives pure Couette flow (a linear profile). A favorable pressure gradient makes the velocity exceed $U_t$ in the interior. An adverse gradient produces reversed flow near the bottom.
+:::

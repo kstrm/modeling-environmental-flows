@@ -4,6 +4,16 @@ title: 1D Unsteady Hydraulics - Boundary Conditions and Implicit Schemes
 
 # Boundary Conditions and Implicit Schemes
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- explain which boundary information reaches each end of a subcritical reach
+- list common boundary-condition types (specified stage or discharge, rating curve, gate, reservoir)
+- write the Preissmann scheme and the role of its weighting factor
+- count equations and unknowns to see why boundary conditions are needed
+:::
+
 ## Boundary conditions
 
 At the ends of a reach, the Saint-Venant equations need boundary information. For subcritical flow ($Fr<1$), one condition is needed at each end; for supercritical flow, both are specified upstream.
@@ -52,3 +62,29 @@ $$\mathbf U_i^{k+1}+\mathbf U_{i+1}^{k+1}+2\frac{\Delta t}{\Delta x}\left[\alpha
    - With the Jacobian $J_{ij}=\partial F_i/\partial x_j$, linearize $\vec F(\vec x+\delta\vec x)=\vec F(\vec x)+J\,\delta\vec x+O(\delta\vec x^2)$.
    - Solve $J\,\delta\vec x=-\vec F$ for $\delta\vec x$ (the linear solve from the [relaxation note](../../04-boundary-value-problems/notes/01-relaxation-method.md)) and update $\vec x_{new}=\vec x_{old}+\delta\vec x$.
    - Repeat until $\delta\vec x$ is small (this needs the partial derivatives of the equations and boundary conditions).
+
+## Check your understanding
+
+**1.** Which characteristic reaches the upstream boundary, and which the downstream?
+
+:::{dropdown} Answer
+Only C2 ($u-c$) reaches the upstream boundary and only C1 ($u+c$) the downstream boundary, so each end needs one specified relation.
+:::
+
+**2.** What does the weighting factor $\alpha$ do in the Preissmann scheme?
+
+:::{dropdown} Answer
+$\alpha=0$ is fully explicit and $\alpha=1$ fully implicit. The scheme is stable for $0.55<\alpha\le1$; smaller $\alpha$ gives a sharper front but less damping of oscillations.
+:::
+
+**3.** For $N$ segments, how many equations and unknowns are there before boundary conditions?
+
+:::{dropdown} Answer
+$2N$ equations (mass and momentum per segment) and $2(N+1)$ unknowns ($y$ and $V$ at $N+1$ nodes). The two boundary conditions close the system.
+:::
+
+**4.** What do implicit schemes gain, and what do they cost?
+
+:::{dropdown} Answer
+Relaxed (or no) time-step limits from stability, at the cost of solving all the new-level equations together.
+:::

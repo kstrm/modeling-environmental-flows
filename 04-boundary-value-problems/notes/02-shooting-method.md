@@ -4,6 +4,16 @@ title: Boundary Value ODEs - The Shooting Method and the Blasius Boundary Layer
 
 # The Shooting Method and the Blasius Boundary Layer
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- explain why the Blasius problem is a boundary value problem
+- convert it to three first-order ODEs and integrate with RK4
+- iterate on the unknown initial value $h(0)$ with the secant method
+- use the scaling symmetry to find $h(0)$ with a single extra shot
+:::
+
 Companion notebook: [Blasius boundary layer](../completed/12_BCproblem_Blasius.ipynb).
 
 ## Problem
@@ -105,3 +115,29 @@ Now shoot once with any guess $h(0)=h_0$ and read off the far-field value $G=g(\
 $$h(0)=\lambda^3h_0=G^{-3/2}\,h_0.$$
 
 With $h_0=1$ and $G\approx2.0854$ this gives $h(0)=G^{-3/2}\approx0.33206$, the converged value from the secant iteration, after a single extra integration. The shortcut works because the problem is homogeneous under the scaling. Most nonlinear BVPs have no such symmetry and need an iterative root-finder, so treat this as a special feature of similarity solutions.
+
+## Check your understanding
+
+**1.** Why is the Blasius equation a boundary value problem?
+
+:::{dropdown} Answer
+$f(0)=g(0)=0$ are known, but the third condition is a far-field condition, $g(\eta\to\infty)\to1$, and there is no initial value for $h(0)=f''(0)$.
+:::
+
+**2.** State the shooting steps.
+
+:::{dropdown} Answer
+Guess $h(0)$; integrate the ODEs as an initial value problem out to a large $\eta$; check whether $g(\eta_\infty)=1$; if not, update $h(0)$ (here with the secant method) and repeat.
+:::
+
+**3.** A shot with $h(0)=1$ gives $g(\eta_\infty)=2.0854$. What initial slope does the scaling shortcut give?
+
+:::{dropdown} Answer
+$h(0)=G^{-3/2}h_0=2.0854^{-3/2}\approx0.332$, the classic Blasius wall-shear value.
+:::
+
+**4.** How does shooting differ from the relaxation method?
+
+:::{dropdown} Answer
+Shooting turns the problem into an initial value problem and iterates on the missing initial condition. Relaxation discretizes the whole domain and solves one (linear) system with the boundary conditions built in.
+:::

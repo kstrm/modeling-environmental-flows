@@ -4,6 +4,15 @@ title: PDEs - Terminology and Model Equations
 
 # PDEs: Terminology and Model Equations
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- classify a PDE as scalar or system, linear or nonlinear, homogeneous or not, constant or variable coefficient
+- identify the six model equations and what each isolates
+- explain how advection and diffusion change a profile differently
+:::
+
 A partial differential equation (PDE) is an equation whose unknowns depend on more than one independent variable. The full governing equations for 1D, 2D and 3D flow are all PDEs.
 
 - Solving for one unknown gives a **scalar PDE**; solving for several unknowns (e.g. $u,v$ or $Q,A$) gives a **system of PDEs**.
@@ -64,3 +73,29 @@ $$\frac{\partial^2u}{\partial t^2}=c^2\frac{\partial^2u}{\partial x^2}.$$
 $$\frac{\partial^2u}{\partial x^2}+\frac{\partial^2u}{\partial y^2}-\lambda u=g,$$
 
 which is the Poisson equation for $\lambda=0$.
+
+## Check your understanding
+
+**1.** Why is Burgers' equation nonlinear while advection–diffusion is linear?
+
+:::{dropdown} Answer
+In Burgers' equation the advecting speed is $u$ itself, so the term $u\,\partial u/\partial x$ is not first power in the unknown. In advection–diffusion the speed $c$ is a constant.
+:::
+
+**2.** What does advection do to a profile, and what does diffusion do?
+
+:::{dropdown} Answer
+Advection translates the profile without changing its shape (conservative). Diffusion spreads it and lowers the peak (dissipative).
+:::
+
+**3.** How many initial and boundary conditions do the advection and diffusion equations need?
+
+:::{dropdown} Answer
+Advection: 1 initial condition and 1 boundary condition. Diffusion: 1 initial condition and 2 boundary conditions.
+:::
+
+**4.** Is the 1D continuity equation $\partial A/\partial t+\partial Q/\partial x=0$ linear?
+
+:::{dropdown} Answer
+Yes, the unknowns and their derivatives appear only to the first power. The Saint-Venant momentum equation is nonlinear.
+:::

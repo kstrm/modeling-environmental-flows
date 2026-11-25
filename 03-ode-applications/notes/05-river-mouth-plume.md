@@ -4,6 +4,15 @@ title: River Mouth Plume Model
 
 # River Mouth Plume Model
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- list the five unknowns of the plume model and the equations that determine them
+- explain why lateral spreading of a river plume needs its own closure
+- describe the expected trends of $w$, $Q$, $u$, $\Delta\rho$ and $h$ with distance
+:::
+
 A steady, 1D (layer-averaged) model of a buoyant river plume entering a lake, reservoir or ocean, using top-hat profiles. The formulation follows Keyvani and Strom (2016), and the spreading closure follows Hetland and MacDonald (2008).
 
 ## Setup
@@ -52,3 +61,29 @@ There are now four equations (A3, A5, A12, A13) for four primary unknowns, $u(x)
 Typical solutions show $w$ and $Q$ increasing monotonically with distance, while $u$ and $\Delta\rho$ decrease and $h$ grows and levels off.
 
 References: Keyvani and Strom (2016); Hetland and MacDonald (2008).
+
+## Check your understanding
+
+**1.** What are the five unknowns, and what are the equations?
+
+:::{dropdown} Answer
+$Q$, $u$, $w$, $h$ and $\Delta\rho$. The definition $Q=hwu$ plus mass (buoyancy deficit), volume, momentum and a spreading-rate closure, with an entrainment law.
+:::
+
+**2.** Why can entrainment not explain the lateral spreading of a river plume?
+
+:::{dropdown} Answer
+Slot-jet formulations assume $w/h=O(1)$, but for rivers $w/h\gg1$. Hetland and MacDonald (2008) instead observed that each edge spreads at the interfacial wave speed, giving $dw/dx=2\sqrt{g'h}/u=2Ri^{1/2}$.
+:::
+
+**3.** Which quantity is conserved in the plume mass equation?
+
+:::{dropdown} Answer
+The buoyancy deficit $Q\,\Delta\rho$.
+:::
+
+**4.** How do the variables change downstream?
+
+:::{dropdown} Answer
+$w$ and $Q$ increase monotonically, $u$ and $\Delta\rho$ decrease, and $h$ grows and then levels off.
+:::

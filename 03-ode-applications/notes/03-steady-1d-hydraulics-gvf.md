@@ -4,6 +4,15 @@ title: Steady 1D River Hydraulics and Gradually Varied Flow
 
 # Steady 1D River Hydraulics and Gradually Varied Flow
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- reduce the Saint-Venant equations to the gradually varied flow ODE for steady flow
+- write $dh/dx=(S_o-S_f)/(1-Fr^2)$ and explain each term
+- relate the direct step method to an Euler step and the standard step method to an implicit one
+:::
+
 ## From Saint-Venant to an ODE
 
 The 1D governing equations are continuity and momentum:
@@ -56,3 +65,35 @@ $$E_{i+1}=E_i+\Delta x\,(S_o-\bar S_f).$$
 The only difference is that it is *implicit*: $\bar S_f$ needs $h_{i+1}$, so an iteration is required.
 
 More generally, write $\dfrac{dh}{dx}=\dfrac{S_o-S_f}{1-Fr^2}$ and note that it is explicit if $S_f$ and $Fr$ are evaluated at $i$, and implicit if they also depend on $i+1$. For the homework, use the explicit form (RK4) of the $dh/dx$ equation.
+
+## Check your understanding
+
+**1.** What does steady flow do to the continuity and momentum equations?
+
+:::{dropdown} Answer
+Continuity becomes $dQ/dx=0$, so $Q$ is constant, and momentum becomes an ODE in $x$: $dE/dx=S_o-S_f$, which can be written $dh/dx=(S_o-S_f)/(1-Fr^2)$.
+:::
+
+**2.** What is $dE/dh$ for specific energy $E=u^2/2g+h$?
+
+:::{dropdown} Answer
+$dE/dh=1-Fr^2$.
+:::
+
+**3.** How does the direct step method relate to Euler's method?
+
+:::{dropdown} Answer
+It is an Euler step applied to the energy equation, $E_{i+1}=E_i+\Delta x(S_o-\bar S_f)$, solved for the distance $\Delta x$ given a chosen change in $E$.
+:::
+
+**4.** Why is the standard step method implicit?
+
+:::{dropdown} Answer
+It takes $h_{i+1}$ as the unknown, but $\bar S_f$ depends on $h_{i+1}$, so an iteration is needed at each step.
+:::
+
+**5.** What happens to the GVF equation as $Fr\to1$?
+
+:::{dropdown} Answer
+The denominator $1-Fr^2\to0$, so $dh/dx$ becomes singular. The equation cannot be integrated through critical flow.
+:::

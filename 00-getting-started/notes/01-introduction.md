@@ -1,5 +1,15 @@
 # Introduction: Why Model Environmental Flows?
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- name the quantities of interest for rivers, estuaries and plumes and the question a model answers
+- state the three conservation principles behind the governing equations and give an equation for each
+- explain why counting five unknowns and five equations is not enough to close a turbulent flow problem
+- describe the path from continuous equations to a discrete problem solved on a computer
+:::
+
 *Transcribed from the Lecture 1 handout and instructor notes.*
 
 ## Complex fluid environments are everywhere
@@ -134,3 +144,23 @@ Instructor talking points:
 - Numerical simulations are less expensive than physical models, so they get used. *(Add examples.)*
 - Models are the primary tool of consulting.
 - Most numerical-methods coursework is geared toward mechanical and aerospace applications, not environmental flows.
+
+## Check your understanding
+
+**1.** Which three principles underlie the governing equations, and which equations come from each?
+
+:::{dropdown} Answer
+Conservation of mass (continuity, advection–diffusion, the Exner equation), conservation of momentum (the Navier–Stokes equations and their variants) and conservation of energy (the energy equation).
+:::
+
+**2.** The full equations have 5 unknowns and 5 equations. Why is that not the end of the story for natural flows?
+
+:::{dropdown} Answer
+The count works for the instantaneous equations, but those cannot be solved analytically except for simple conditions, and resolving every turbulent eddy is expensive. Averaging the equations (RANS) introduces new unknowns, the Reynolds stresses, so extra equations (a turbulence closure) are needed. The next lesson covers this.
+:::
+
+**3.** What are the three steps of the numerical approach?
+
+:::{dropdown} Answer
+A continuous physical domain and governing PDEs become a discrete domain and a system of algebraic equations, which is then solved on a computer.
+:::

@@ -4,6 +4,17 @@ title: Upwind, Lax and Implicit Schemes
 
 # Upwind, Lax and Implicit Schemes
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- choose the upwind direction from the sign of $c$
+- write the Lax and Lax–Wendroff schemes and compare their behavior
+- state Godunov's theorem and what it means for accuracy and monotonicity
+- set up an implicit (BTCS) scheme as a tridiagonal system and explain why it is unconditionally stable
+- use the cell Péclet number to choose a scheme for advection–diffusion
+:::
+
 Companion notebook: [Stability and accuracy of schemes for advection and diffusion](../completed/14_AdvectionDiffusion_Schemes_Stability.ipynb).
 
 This note continues from [stability and the CFL condition](03-stability-cfl-and-von-neumann.md) with the main families of schemes used for advection, diffusion and their combination.
@@ -109,3 +120,35 @@ Here $r=1$ and the solution remains stable and close to the exact Gaussian solut
 | Sharp fronts or shocks | TVD / limited schemes (e.g. MacCormack with TVD) |
 | Diffusion on fine grids | implicit (BTCS or Crank–Nicolson) |
 | Rivers, long durations | implicit (e.g. Preissmann, see [1D unsteady hydraulics](../../06-1d-unsteady-hydraulics/notes/02-boundary-conditions-and-implicit-schemes.md)) |
+
+## Check your understanding
+
+**1.** Which points does upwinding use when $c<0$?
+
+:::{dropdown} Answer
+The downstream neighbor: $u_i^{n+1}=u_i^n-\nu(u_{i+1}^n-u_i^n)$. Information comes from the side the flow comes from.
+:::
+
+**2.** How do Lax and Lax–Wendroff compare?
+
+:::{dropdown} Answer
+Lax replaces $u_i^n$ in FTCS by the neighbor average and smears strongly (more so for small time steps). Lax–Wendroff is second order in time and space and gives sharp fronts, but oscillates near jumps.
+:::
+
+**3.** What does Godunov's theorem say?
+
+:::{dropdown} Answer
+No linear scheme of higher than first order can be monotone. Upwind is monotone but smeared; Lax–Wendroff is sharp but has wiggles.
+:::
+
+**4.** Why use an implicit scheme for diffusion?
+
+:::{dropdown} Answer
+BTCS is unconditionally stable, so it works at $r=1$ where explicit FTCS would blow up. Each step solves a tridiagonal system, which costs only $O(N)$.
+:::
+
+**5.** What does a large cell Péclet number $|c|\Delta x/\nu_d$ imply?
+
+:::{dropdown} Answer
+Central differencing of the advective term tends to produce wiggles, so upwinding is preferred, but then numerical diffusion can exceed the physical diffusion.
+:::

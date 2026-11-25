@@ -4,6 +4,16 @@ title: Introduction to 1D Morphodynamics - The Exner Equation
 
 # Introduction to 1D Morphodynamics: The Exner Equation
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- write the 1D Exner equation and explain each term
+- relate the sign of $\partial q_t/\partial x$ to erosion and deposition
+- list what closes the coupled hydraulics and morphodynamics system
+- compare Meyer-Peter and Müller and Engelund–Hansen transport relations
+:::
+
 The Saint-Venant equations (mass and momentum) solve for the depth $h$ and velocity $u$ as functions of $x$ and $t$ over a *fixed* bed. **Morphodynamics** adds the change in the boundary, the bed, and the influence of that change back on the hydrodynamics. The two are coupled in a loop: hydraulics drive sediment transport, transport changes the bed, and the new bed alters the hydraulics.
 
 ## Conservation of bed sediment
@@ -41,6 +51,38 @@ $$q_t=\sqrt{gR_sd^3}\;\frac{0.05}{C_f}\,\left(\tau^*\right)^{5/2},$$
 where $C_f$ is a resistance (friction) coefficient.
 
 Both increase rapidly with shear stress, so small changes in flow can produce large changes in transport, and the bed responds on a much longer time scale than the water. This difference in time scales is why many models solve the hydraulics, update the bed, and repeat (a *loose coupling*), and why long-term simulations use sequences of steady or quasi-unsteady flows rather than resolving every flood wave.
+
+## Check your understanding
+
+**1.** Write the Exner equation.
+
+:::{dropdown} Answer
+$(1-\lambda_p)\,\partial\eta/\partial t=-\partial q_t/\partial x$, with bed elevation $\eta$, bed porosity $\lambda_p$ and total volumetric sediment flux $q_t$ per unit width.
+:::
+
+**2.** Where the transport rate increases downstream, does the bed erode or aggrade?
+
+:::{dropdown} Answer
+It erodes ($\partial q_t/\partial x>0$ makes $\partial\eta/\partial t<0$). Where transport decreases downstream, sediment deposits.
+:::
+
+**3.** The system has three equations for $h$, $u$ and $\eta$. What else is needed?
+
+:::{dropdown} Answer
+A transport closure for $q_t$ and a resistance relation linking the hydraulics to the bed shear stress.
+:::
+
+**4.** Why are hydraulics and bed change often solved in alternation (loose coupling)?
+
+:::{dropdown} Answer
+The bed responds on a much longer time scale than the water.
+:::
+
+**5.** How do MPM and Engelund–Hansen differ?
+
+:::{dropdown} Answer
+MPM is a bed-load relation with $(\tau^*-\tau^*_{cr})^{3/2}$; Engelund–Hansen is a total-load relation proportional to $(\tau^*)^{5/2}/C_f$.
+:::
 
 ## What to read next
 

@@ -4,6 +4,15 @@ title: Systems of ODEs
 
 # Systems of ODEs
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- extend RK4 from one ODE to a system, using the current estimates of all variables in every slope
+- store a system in a 2D array and write the RK4 loop once for any number of equations
+- solve a system with `scipy.integrate.solve_ivp` and read its output layout
+:::
+
 A system of ODEs is handled exactly like a single equation; there are just more calculations. For
 
 $$\frac{dy_1}{dx}=f_1(x,y_1,y_2),\qquad\frac{dy_2}{dx}=f_2(x,y_1,y_2),$$
@@ -83,3 +92,29 @@ sol = solve_ivp(df, (0, 50), ic, t_eval=t)    # sol.t: times, sol.y: shape (2, l
 By default `solve_ivp` uses an adaptive Runge-Kutta method (`RK45`, Dormand-Prince): it chooses its own internal step size to meet the tolerances `rtol` and `atol`, and `t_eval` only controls where the solution is reported. Other methods are chosen with `method=` (`RK23`, `DOP853`, and the implicit `Radau` and `BDF` for stiff problems). The result object holds `sol.t`, `sol.y` and diagnostics such as `sol.nfev`, the number of function evaluations.
 
 Note the array layout is the same as Method 2: `sol.y[0]` is rabbits and `sol.y[1]` is foxes, one row per variable. Use `ax.plot(t, sol.y.T)` to plot both at once. The older `odeint` interface, which takes `f(y, t)` and returns the transpose, is still found in a lot of code, but new code should use `solve_ivp`.
+
+## Check your understanding
+
+**1.** In a system, what must each slope evaluation use?
+
+:::{dropdown} Answer
+The current (intermediate) estimates of all the variables, not just the one being updated.
+:::
+
+**2.** With `y = np.zeros((2, N))`, what does `y[:, i]` give?
+
+:::{dropdown} Answer
+The values of both variables at time index $i$, which is exactly what the right-hand-side function needs.
+:::
+
+**3.** What is the argument order of the right-hand side for our RK4 loops and for `solve_ivp`, and what shape is `sol.y`?
+
+:::{dropdown} Answer
+Both use `f(t, y)`. `sol.y` has one row per variable, shape `(n_variables, n_times)`.
+:::
+
+**4.** What does the rabbit–fox phase plot ($F$ against $R$) look like, and what does that mean?
+
+:::{dropdown} Answer
+A closed loop, meaning the populations oscillate periodically rather than settling to a steady value.
+:::

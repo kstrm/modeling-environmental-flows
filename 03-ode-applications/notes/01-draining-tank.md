@@ -4,6 +4,15 @@ title: Example - Draining a Tank
 
 # Example: Draining a Tank
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- derive the draining-tank ODE from conservation of mass
+- use Bernoulli's equation as a closure for the exit velocity
+- check a numerical solution against the analytic drain time
+:::
+
 A tank of diameter $D$ has a drain of diameter $d$ at the bottom. We want the water depth $h=h(t)$ and the time to drain. This is an **unsteady** problem, different from the typical steady problems in an undergraduate course.
 
 Companion notebook: [4th-order Runge–Kutta, tank example](../completed/04_4th-Order_Runge-Kutta_TankExample.ipynb).
@@ -57,3 +66,29 @@ The equation has the form $dh/dt=g(h)$ with $g(h)=-\dfrac{d^2}{D^2}\sqrt{2gh}$. 
 ## A note on the end of the run
 
 With $D=3$, $d=1/12$, $h_0=3$ (consistent units, e.g. ft) and $\Delta t=60$ s, the analytic drain time is about 9.3 min. If the run is carried past that time, the numerical solution produces `nan` and a `RuntimeWarning: invalid value encountered in sqrt`, because $h$ becomes slightly negative and $\sqrt{2gh}$ is undefined. (The analytic expression, being a square, would climb back up, which is unphysical.) The fix is to stop the loop once the depth is effectively zero, e.g. `if y[i+1] <= 0.001*y0: break`, and report the time at which that happened.
+
+## Check your understanding
+
+**1.** Why is a closure needed in the tank equation, and what is used?
+
+:::{dropdown} Answer
+The mass balance contains the exit velocity, which depends on the depth, $V_2=f(h)$. Bernoulli's equation from the free surface to the drain, with negligible losses and $V_1\ll V_2$, gives $V_2=\sqrt{2gh}$.
+:::
+
+**2.** Find the drain time for $D=3$, $d=1/12$, $h_0=3$ (ft), with $g=32.2$ ft/s$^2$.
+
+:::{dropdown} Answer
+$t_{drain}=\dfrac{D^2}{d^2}\sqrt{\dfrac{2h_0}{g}}=1296\sqrt{6/32.2}\approx560$ s, about 9.3 minutes.
+:::
+
+**3.** Why does a run that continues past the drain time produce `nan`?
+
+:::{dropdown} Answer
+The depth becomes slightly negative, so $\sqrt{2gh}$ is undefined and NumPy returns `nan` with a warning.
+:::
+
+**4.** How do you know the numerical implementation is correct?
+
+:::{dropdown} Answer
+For $Q_{in}=0$ there is an analytic solution, $h(t)=[h_0^{1/2}-(d^2/D^2)\sqrt{g/2}\,t]^2$, to compare against.
+:::

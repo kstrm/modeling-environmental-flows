@@ -4,6 +4,16 @@ title: Stability, the CFL Condition and von Neumann Analysis
 
 # Stability, the CFL Condition and von Neumann Analysis
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- define consistency, stability and convergence
+- compute the Courant number and apply the CFL condition
+- carry out a von Neumann stability analysis for FTBS and FTCS
+- explain numerical diffusion from the truncation error
+:::
+
 Companion notebook: [Stability and accuracy of schemes for advection and diffusion](../completed/14_AdvectionDiffusion_Schemes_Stability.ipynb).
 
 The [previous note](02-advection-equation-ftbs-ftcs.md) showed that FTBS smears a square wave while FTCS blows up. Here we explain why, and give tools to decide beforehand whether a scheme will work.
@@ -95,3 +105,35 @@ The next note covers Lax, Lax–Wendroff, upwinding for variable direction, and 
 
 - von Neumann analysis assumes a **linear**, constant-coefficient problem on a periodic or infinite domain. Boundaries and nonlinearity (as in Burgers' or the Saint-Venant equations) can add restrictions, so in practice one uses it as a guide and verifies with numerical experiments.
 - Stability does not mean accuracy: a stable scheme can still smear or distort the solution badly.
+
+## Check your understanding
+
+**1.** For $n_x=50$ points on $(0,2)$, $\Delta t=0.02$ and $c=1$, what is $\nu$ and is FTBS stable? What about $\Delta t=0.05$?
+
+:::{dropdown} Answer
+$\Delta x=2/49\approx0.0408$, so $\nu=0.49$ and FTBS is stable. With $\Delta t=0.05$, $\nu\approx1.2>1$ and it is unstable.
+:::
+
+**2.** State the CFL condition in words.
+
+:::{dropdown} Answer
+The numerical domain of dependence must include the physical one: information cannot travel more than one grid cell per time step, so $\nu=c\Delta t/\Delta x\le1$ for these schemes.
+:::
+
+**3.** Why is FTCS unstable for every $\nu$?
+
+:::{dropdown} Answer
+The amplification factor is $G=1-i\nu\sin\theta$, so $|G|^2=1+\nu^2\sin^2\theta>1$ for any $\nu\ne0$ and every Fourier mode that is not constant or alternating grows.
+:::
+
+**4.** What is the numerical diffusion of FTBS, and what happens at $\nu=1$?
+
+:::{dropdown} Answer
+The modified equation is $u_t+cu_x=\tfrac{c\Delta x}{2}(1-\nu)u_{xx}$, so smearing vanishes at $\nu=1$ and the scheme becomes exact for this problem.
+:::
+
+**5.** What is the stability limit for explicit diffusion?
+
+:::{dropdown} Answer
+$r=\nu_d\Delta t/\Delta x^2\le\tfrac12$.
+:::

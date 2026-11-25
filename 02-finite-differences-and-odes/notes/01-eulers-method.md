@@ -4,6 +4,15 @@ title: Introduction to Numerical Methods - Euler's Method
 
 # Introduction to Numerical Methods: Euler's Method
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- write the explicit and implicit Euler steps for $dy/dx=f(x,y)$
+- interpret an Euler step as moving along a line with the local slope
+- say when Euler's method is exact and when it is only an approximation
+:::
+
 Reference: any calculus or numerical methods text, or Section 3.2 of Aref and Balachandar (2018).
 
 ## Idea
@@ -70,3 +79,29 @@ Compare with the analytic solution, which satisfies the same initial condition:
 $$\xi(t)=-\frac{2}{4}t^4+\frac{12}{3}t^3-\frac{20}{2}t^2+8.5\,t+1.$$
 
 Work through this in the notebook [Euler method](../completed/01_Euler_Method.ipynb).
+
+## Check your understanding
+
+**1.** Write one explicit Euler step for $dy/dx=f(x,y)$.
+
+:::{dropdown} Answer
+$y_{i+1}=y_i+f(x_i,y_i)\,\Delta x$: the new value is the old value plus the slope times the step.
+:::
+
+**2.** When does explicit Euler give the exact solution?
+
+:::{dropdown} Answer
+When the slope is constant, i.e. the true solution is a straight line. Otherwise it is an approximation whose quality depends on the step size.
+:::
+
+**3.** What is the difference between explicit and implicit Euler?
+
+:::{dropdown} Answer
+Explicit evaluates the slope at step $i$; implicit evaluates it at step $i+1$, so $y_{i+1}$ appears on both sides and generally requires solving an algebraic equation.
+:::
+
+**4.** Take one step for $d\xi/dt=-2t^3+12t^2-20t+8.5$ with $\xi(0)=1$ and $\Delta t=0.5$. How far is the result from the analytic value?
+
+:::{dropdown} Answer
+The slope at $t=0$ is $8.5$, so $\xi(0.5)\approx1+8.5(0.5)=5.25$. The analytic solution gives $1+8.5(0.5)-10(0.25)+4(0.125)-0.5(0.0625)=3.21875$, so one step is off by about $2$. The slope changes a lot over the step.
+:::

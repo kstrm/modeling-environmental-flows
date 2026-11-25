@@ -4,6 +4,15 @@ title: 1D Unsteady Hydraulics - Governing Equations and Explicit Schemes
 
 # 1D Unsteady Hydraulics: Governing Equations and Explicit Schemes
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- write the equations in vector conservation form $\mathbf U_t+\mathbf F_x=\mathbf G$
+- describe the Lax and MacCormack schemes
+- explain why source terms need careful treatment in shock-capturing schemes
+:::
+
 A brief introduction to the Saint-Venant equations and a few discretization methods. The [previous note](00-saint-venant-equations-and-wave-speeds.md) derives the equations; see Chaudhry (2008), *Open-Channel Flow*, for more.
 
 ## Governing equations
@@ -85,6 +94,32 @@ $$\mathbf U_i^*=\mathbf U_i^k-\frac{\Delta t}{\Delta x}(\mathbf F_{i+1}^k-\mathb
 where the last term is the TVD dissipation. Treating the source terms so that they balance the flux gradients (Tseng, 2003) removes the spurious discharge oscillations that otherwise appear over a sloping, uneven bed.
 
 **Testing.** The model is checked against cases with known behavior: slope changes (with transitions between sub- and supercritical flow), dam break, and vertical and lateral contractions for the hydrodynamics, then sediment expansion and contraction cases for bed change (bed load computed from a power-law or a Meyer-Peter–Müller type relation).
+
+## Check your understanding
+
+**1.** What do $\mathbf U$, $\mathbf F$ and $\mathbf G$ represent?
+
+:::{dropdown} Answer
+$\mathbf U$ is the vector of conserved variables, $\mathbf F$ the flux vector, and $\mathbf G$ the source terms (bed slope, friction, channel width changes).
+:::
+
+**2.** Outline the MacCormack scheme.
+
+:::{dropdown} Answer
+A predictor step with a forward difference, a corrector step with a backward difference using the predicted values, and the average of the two. A TVD dissipation term is added in the shock-capturing version.
+:::
+
+**3.** Why does the source-term treatment matter?
+
+:::{dropdown} Answer
+Unbalanced source terms produce spurious discharge oscillations over a sloping, uneven bed. Treating them so they balance the flux gradients removes these.
+:::
+
+**4.** In the dam-break test ($h_L=10$ m, $h_R=5$ m), what are the middle-state depth and the bore speed?
+
+:::{dropdown} Answer
+$h_m\approx7.27$ m, $u_m\approx2.92$ m/s and a bore speed of about $9.35$ m/s.
+:::
 
 ## Further reading
 

@@ -4,6 +4,15 @@ title: Runge-Kutta Methods
 
 # Runge–Kutta Methods
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- describe the idea of Runge–Kutta methods: intermediate slope evaluations within one step
+- write the midpoint method and the classical RK4 step
+- explain that RK methods are single-step and what their order means
+:::
+
 Runge–Kutta (RK) methods are higher-order, single-step schemes commonly used for ODEs. They were developed around 1900 by C. D. T. Runge, a German mathematician often called the father of numerical methods, and M. W. Kutta, an aerodynamicist.
 
 Companion notebook: [4th-order Runge–Kutta, initial scheme and one ODE](../completed/03_4th-Order_Runge-Kutta_InitialScheme_1ODE.ipynb).
@@ -88,3 +97,29 @@ The notebook then wraps the scheme in functions (`setup`, `RK4`) so the right-ha
 ## Multistep methods
 
 Another classic family of ODE methods, which we will also use for PDEs, is the multistep methods, e.g. the Adams–Bashforth–Moulton method. Read up on it and be prepared to (1) teach the class about the Adams–Bashforth method and (2) compare it to Runge–Kutta.
+
+## Check your understanding
+
+**1.** What does the midpoint method do differently from Euler?
+
+:::{dropdown} Answer
+It uses an Euler half-step to estimate the value at the middle of the interval, then evaluates the slope there and uses it across the whole step. This gives a second-order method.
+:::
+
+**2.** How many slope evaluations does one RK4 step need, and how are they combined?
+
+:::{dropdown} Answer
+Four ($K_0$ to $K_3$), combined as $y_{i+1}=y_i+\frac{\Delta t}{6}(K_0+2K_1+2K_2+K_3)$.
+:::
+
+**3.** Does RK4 need values from earlier steps?
+
+:::{dropdown} Answer
+No. It is a single-step method: it needs only step $i$, with the extra evaluations done inside the step.
+:::
+
+**4.** If you halve the step, roughly how does the global error change for a second-order and a fourth-order method?
+
+:::{dropdown} Answer
+It falls by about $2^2=4$ for second order and $2^4=16$ for fourth order. Euler (first order) falls only by about 2.
+:::

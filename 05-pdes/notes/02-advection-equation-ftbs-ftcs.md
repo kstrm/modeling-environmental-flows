@@ -4,6 +4,15 @@ title: The Advection Equation - FTBS and FTCS
 
 # The Advection Equation: FTBS and FTCS
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- discretize $u_t+cu_x=0$ with FTBS and FTCS
+- run both schemes on a square wave and describe the results
+- write the schemes with loops and then with array slicing
+:::
+
 Companion notebook: [Simple PDE: advection](../completed/13_SimplePDE_Advection.ipynb).
 
 ## Problem
@@ -98,3 +107,29 @@ These give the same numbers as the loops (check with `np.allclose`) and are roug
 - **FTCS** is more accurate in space (second order) but, run for the same time, produces large growing oscillations (values below 0 and above 3 for a wave that should stay between 1 and 2). The scheme is unstable for this equation, however small the time step. Accuracy in space alone is not enough: the combination of time and space schemes determines stability.
 
 This motivates asking: *Other methods?* The next two notes explain why FTCS fails and FTBS smears ([stability and the CFL condition](03-stability-cfl-and-von-neumann.md)) and introduce the alternatives ([upwind, Lax and implicit schemes](04-upwind-lax-and-implicit-schemes.md)).
+
+## Check your understanding
+
+**1.** Write the FTBS update for $u_t+cu_x=0$.
+
+:::{dropdown} Answer
+$u_i^{n+1}=u_i^n-\dfrac{c\Delta t}{\Delta x}(u_i^n-u_{i-1}^n)$: forward in time, backward in space.
+:::
+
+**2.** How does the FTBS solution of a square wave look after 25 steps?
+
+:::{dropdown} Answer
+The wave has moved about the right distance, but its edges are smeared: the scheme is stable here but numerically diffusive.
+:::
+
+**3.** What does FTCS do for the same problem?
+
+:::{dropdown} Answer
+It produces large growing oscillations (values well below 1 and above 2 for a wave that should stay between 1 and 2). It is unstable however small the time step.
+:::
+
+**4.** Why can the loop over space be vectorized but not the loop over time?
+
+:::{dropdown} Answer
+All points of one time step depend only on the previous time level, so they can be updated together with slicing. Each time step needs the result of the one before it.
+:::

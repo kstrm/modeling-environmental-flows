@@ -4,6 +4,16 @@ title: The Saint-Venant Equations, Wave Speeds and the CFL Limit
 
 # The Saint-Venant Equations, Wave Speeds and the CFL Limit
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- write the 1D Saint-Venant equations and state their assumptions
+- compute the wave speeds $u\pm c$ and the Froude number
+- state how many boundary conditions are needed for subcritical and supercritical flow
+- compute the CFL limit for the explicit schemes
+:::
+
 Companion notebook: [Dam-break flow with the Lax and MacCormack schemes](../completed/15_DamBreak_Lax_MacCormack.ipynb).
 
 The 1D equations for unsteady open-channel flow are the depth-and-cross-section-averaged mass and momentum equations introduced in [module 01](../../01-governing-equations/notes/01-components-of-a-model-and-governing-equations.md). Here we derive them, identify the waves they carry, and find the stability limit for the explicit schemes in the [next note](01-governing-equations-and-explicit-schemes.md).
@@ -93,3 +103,29 @@ $$\Delta t\le\frac{\Delta x}{\max_i\left(|u_i|+c_i\right)}.$$
 **Example.** A river 2 m deep flowing at 1 m/s has $c=\sqrt{9.81\times2}=4.43$ m/s, so $Fr=0.23$ and the wave speeds are $u+c=5.43$ and $u-c=-3.43$ m/s. On a grid with $\Delta x=100$ m, the time step is limited to $\Delta t\le100/5.43\approx18$ s, even though the water itself moves only 18 m in that time. Because $c$ depends on depth, the limit changes as the flood wave rises, so codes recompute $\Delta t$ every step.
 
 Implicit schemes such as Preissmann's box scheme are not bound by this limit, which is why they are used for long simulations of rivers.
+
+## Check your understanding
+
+**1.** For $h=0.5$ m and $u=3$ m/s, what are $c$, $Fr$ and the wave speeds? Is the flow sub- or supercritical?
+
+:::{dropdown} Answer
+$c=\sqrt{9.81\times0.5}\approx2.21$ m/s, $Fr\approx1.35$, and $u\pm c\approx5.21$ and $0.79$ m/s. Both are positive, so the flow is supercritical.
+:::
+
+**2.** How many boundary conditions does each case need?
+
+:::{dropdown} Answer
+Subcritical flow needs one at each end of the reach. Supercritical flow needs both at the upstream end, because disturbances cannot travel upstream.
+:::
+
+**3.** For the flow above on a grid with $\Delta x=50$ m, what is the largest time step?
+
+:::{dropdown} Answer
+$\Delta t\le\Delta x/(|u|+c)=50/5.21\approx9.6$ s.
+:::
+
+**4.** Why is the time step set by $|u|+c$ rather than by $u$?
+
+:::{dropdown} Answer
+Disturbances travel at $u\pm c$, and the numerical domain of dependence must include the fastest of them.
+:::

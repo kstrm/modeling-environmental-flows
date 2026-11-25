@@ -4,6 +4,17 @@ title: Components of a Model and Governing Equations
 
 # Components of a Model and Governing Equations
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- list the decisions needed to build a model (quantities, equations, dimensions, resolution, scheme, boundary conditions, testing)
+- write continuity in point, time-averaged, depth-averaged and cross-section-averaged forms
+- identify the local, advective, gravity, pressure and shear-stress terms in the Navier–Stokes equations
+- explain what the Reynolds stress is and why it requires a turbulence model
+- choose among DNS, LES, RANS, 2D and 1D models for a given question
+:::
+
 ## The big picture
 
 A model replaces a continuous physical domain governed by PDEs with a discrete domain and a system of algebraic equations, which is then solved on a computer.
@@ -140,6 +151,38 @@ $$\frac{\partial Q}{\partial t}+\frac{\partial}{\partial x}\left(\beta\frac{Q^2}
 - The governing equations the model solves are important. The type of equation you choose dictates what you can look at with the model.
 - We need to solve PDEs regardless of the level of resolution.
 - These PDEs have characteristic derivatives, which will matter for choosing numerical schemes.
+
+## Check your understanding
+
+**1.** Why does time averaging the Navier–Stokes equations create a new term, and what problem does that cause?
+
+:::{dropdown} Answer
+The advective term is nonlinear, so averaging leaves a term built from the fluctuating velocities, the Reynolds stress $\overline{u_i'u_j'}$. These are new unknowns with no equations of their own, so the system needs a turbulence model to close it.
+:::
+
+**2.** You need the flood depth at a city far downstream of a large basin. Which averaged model fits, and why?
+
+:::{dropdown} Answer
+A 1D cross-section-averaged (Saint-Venant) model. The question concerns depth and discharge along the river, over a large domain, and 1D models are fast.
+:::
+
+**3.** What does continuity reduce to for incompressible flow?
+
+:::{dropdown} Answer
+$\partial u/\partial x+\partial v/\partial y+\partial w/\partial z=0$: the divergence of the velocity is zero at every point.
+:::
+
+**4.** In the depth-averaged momentum equation, which terms need a closure?
+
+:::{dropdown} Answer
+The bed shear stress $\tau_B$ (a resistance equation is needed) and the shear stress terms, which are modeled with diffusion or dispersion terms.
+:::
+
+**5.** Name two ways to test a model that runs without errors.
+
+:::{dropdown} Answer
+Compare a simple case with an analytic solution, and compare with laboratory data, field data or the output of other models. A solver that runs is not necessarily physically meaningful.
+:::
 
 ## Assignments
 

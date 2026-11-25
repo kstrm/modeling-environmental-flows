@@ -4,6 +4,16 @@ title: Initial Value ODEs in Natural and Engineered Systems
 
 # Initial Value ODEs in Natural and Engineered Systems
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- state when a physical problem reduces to an initial value ODE
+- list simplifications that remove spatial dependence (well-mixed tanks, level-pool routing)
+- write the mass balances for tanks in series
+- explain why a numerical solution of wrong equations still needs critical checking
+:::
+
 What kinds of problems present themselves as an initial value ODE or a set of ODEs? The system must:
 
 1. depend on only one variable (a general $x$, or time), and
@@ -58,3 +68,29 @@ The loss terms are right ($Q/V_i=\tfrac12,\tfrac14,\tfrac16$ per minute), but th
 $$\frac{dC_1}{dt}=-\tfrac12C_1,\qquad\frac{dC_2}{dt}=\tfrac14C_1-\tfrac14C_2,\qquad\frac{dC_3}{dt}=\tfrac16C_2-\tfrac16C_3.$$
 
 The point of the exercise: a numerical solution of the wrong equations still runs and produces smooth curves, so you must critically examine the output (e.g., does total salt mass behave physically? do the curves make sense?).
+
+## Check your understanding
+
+**1.** What two conditions let a system be written as an initial value ODE?
+
+:::{dropdown} Answer
+It depends on only one independent variable (such as time), and there is no constraint on the far field.
+:::
+
+**2.** Three tanks have volumes 20, 40 and 60 L and $Q=10$ L/min. What are the loss rates $Q/V_i$?
+
+:::{dropdown} Answer
+$1/2$, $1/4$ and $1/6$ per minute.
+:::
+
+**3.** In the correct tank-series equations, which volume divides each inflow term?
+
+:::{dropdown} Answer
+The volume of the receiving tank. For example $dC_2/dt=\tfrac14 C_1-\tfrac14C_2$, because $Q/V_2=1/4$. The handout version used the upstream volume.
+:::
+
+**4.** The wrong equations still give smooth curves. How could you detect the error?
+
+:::{dropdown} Answer
+Check total salt mass. In the correct system $d(\sum C_iV_i)/dt=-QC_3$, so mass leaves only through the outlet. The wrong inflow terms break this balance.
+:::

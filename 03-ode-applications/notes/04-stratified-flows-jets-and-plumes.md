@@ -4,6 +4,15 @@ title: Stratified Flows, Jets and Plumes (Introduction)
 
 # Stratified Flows, Jets and Plumes: Introduction
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- predict whether a stratified configuration is stable from the sign of $\partial\rho/\partial z$
+- define reduced gravity and explain the Boussinesq approximation
+- define the densimetric Froude number and the bulk Richardson number
+:::
+
 ## What drives the dynamics?
 
 Jets and plumes (for example, a discharge pipe in a lake or ocean, or a river entering a lake, reservoir or ocean) are driven by:
@@ -104,3 +113,29 @@ Use the profile to get integral properties. For a planar jet of depth $h$ and wi
 $$Q=A\,u_{avg}=h\cdot2\int_0^\infty u_cf(\eta)\,dy=2hb\,\alpha_Qu_c,\qquad u_{avg}=\alpha_Qu_c,$$
 
 with $\alpha_Q=\sqrt\pi/2\approx0.886$ for a Gaussian profile. A **top-hat profile** instead has $u_c=u=u_{avg}$ across the width $2b$.
+
+## Check your understanding
+
+**1.** With $z$ pointing up, which sign of $\partial\rho/\partial z$ is stable?
+
+:::{dropdown} Answer
+$\partial\rho/\partial z<0$ (lighter fluid above heavier fluid) is stable. $\partial\rho/\partial z>0$ is unstable and overturns. Horizontal gradients $\partial\rho/\partial x$ of either sign cause motion.
+:::
+
+**2.** Define the reduced gravity.
+
+:::{dropdown} Answer
+$g'=\dfrac{\rho-\rho_a}{\rho}g$. In most cases $g$ in the governing equations can simply be replaced by $g'$ (the Boussinesq approximation).
+:::
+
+**3.** By what factor is the driving force on seawater ($1025$ kg/m$^3$) beneath fresh water smaller than for water beneath air?
+
+:::{dropdown} Answer
+The density differences are 25 and about 1000 kg/m$^3$, a ratio of about $0.025$, so the force is about 2.5 % as large.
+:::
+
+**4.** How are $Ri$ and $Fr_d$ related?
+
+:::{dropdown} Answer
+$Ri=g'h/u^2=1/Fr_d^2$, where $Fr_d=u/\sqrt{g'h}$.
+:::

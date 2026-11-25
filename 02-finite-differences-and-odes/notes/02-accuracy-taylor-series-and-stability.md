@@ -4,6 +4,15 @@ title: Euler Error, Taylor Series and Stability
 
 # Euler Error, Taylor Series and Stability
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- explain why Euler's method is first-order accurate using the Taylor series
+- derive the stability limit of explicit Euler for $y'=-\lambda y$ and show implicit Euler is unconditionally stable
+- distinguish the step needed for stability from the step needed to avoid oscillation
+:::
+
 Companion notebooks: [Euler method](../completed/01_Euler_Method.ipynb) and [Euler method stability](../completed/02_Euler_Method-Stability.ipynb).
 
 ## Quantifying the error
@@ -81,6 +90,32 @@ $$\Delta x<\frac1\lambda.$$
 $$y_{i+1}=y_i+\Delta x(-\lambda y_{i+1})\;\Rightarrow\;y_{i+1}(1+\lambda\Delta x)=y_i\;\Rightarrow\;y_{i+1}=\frac{1}{1+\lambda\Delta x}\,y_i.$$
 
 For stability we need $\left|\dfrac{1}{1+\lambda\Delta x}\right|<1$, which holds for **every** $\Delta x>0$ when $\lambda>0$: the implicit scheme is unconditionally stable for this problem. Even with $\Delta x=0.1$ the solution decays smoothly (though inaccurately). In general, implicit methods are more stable than explicit ones, at the cost of solving an equation at each step.
+
+## Check your understanding
+
+**1.** Why is explicit Euler first-order accurate?
+
+:::{dropdown} Answer
+It agrees with the Taylor series only through the first-derivative term, so the truncation error is $O(\Delta t)$ and halving the step roughly halves the error.
+:::
+
+**2.** For $y'=-50y$, what step sizes make explicit Euler decay, and decay without sign changes?
+
+:::{dropdown} Answer
+The factor is $1-\lambda\Delta x$. Decay needs $|1-\lambda\Delta x|<1$, so $\Delta x<2/50=0.04$. No oscillation needs the factor to stay positive, so $\Delta x<1/50=0.02$.
+:::
+
+**3.** What happens for $\lambda=100$ and $\Delta x=0.1$?
+
+:::{dropdown} Answer
+The factor is $1-10=-9$, so the numerical solution grows by a factor of 9 each step and alternates in sign, even though the true solution decays.
+:::
+
+**4.** Why would we accept the extra work of an implicit method?
+
+:::{dropdown} Answer
+For this problem $y_{i+1}=y_i/(1+\lambda\Delta x)$ decays for every $\Delta x>0$, so it is unconditionally stable. The price is solving an equation for $y_{i+1}$ at every step.
+:::
 
 ## Further reading
 

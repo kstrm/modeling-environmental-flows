@@ -4,6 +4,16 @@ title: Spatial Discretization and Finite-Difference Schemes
 
 # Spatial Discretization and Finite-Difference Schemes
 
+:::{admonition} Learning objectives
+:class: tip
+After this lesson you should be able to:
+
+- build forward, backward and central differences from Taylor series and state their order of accuracy
+- derive a finite-difference stencil by matching Taylor series coefficients
+- count grid points and apply one-sided differences at the boundaries
+- write a derivative as a matrix operator acting on the grid values
+:::
+
 So far we have studied initial value problems, which develop in time or space but have no definite end. As we move toward PDEs we turn to (1) general spatial discretization on a domain with a finite end and (2) boundary value problems. Reference: Chapter 4 of Aref and Balachandar (2018).
 
 Companion notebook: [Classic finite differences with Bokeh](../../05-pdes/completed/09_ClassicFD_Bokeh.ipynb).
@@ -122,3 +132,35 @@ $$
 $$
 
 so that, for example, $f'_1=\dfrac1{2\Delta x}(-f_0+f_2)$. See Section 4.2 of Aref and Balachandar (2018).
+
+## Check your understanding
+
+**1.** A domain is divided into $N$ segments. How many grid points are there?
+
+:::{dropdown} Answer
+$N+1$: the two end points (which carry the boundary conditions) and $N-1$ interior points.
+:::
+
+**2.** What is the order of accuracy of the forward and central differences?
+
+:::{dropdown} Answer
+Forward is first order (leading error $\tfrac12\Delta x f''$); central is second order (leading error $\tfrac16\Delta x^2 f'''$).
+:::
+
+**3.** What three-point stencil approximates $f''$?
+
+:::{dropdown} Answer
+$f''_j\approx(f_{j-1}-2f_j+f_{j+1})/\Delta x^2$, second-order accurate.
+:::
+
+**4.** What do you do at the first and last grid points, where a centered stencil is not available?
+
+:::{dropdown} Answer
+Use one-sided differences (forward at the first point, backward at the last) or apply the boundary condition.
+:::
+
+**5.** Why do the stencil conditions $b+c+d=0$, $-b+d=1/\Delta x$, $b+d=0$ give the central difference?
+
+:::{dropdown} Answer
+They require the $f_j$ and $f''_j$ terms to cancel and the $f'_j$ coefficient to equal 1, which leads to $d=1/(2\Delta x)$, $b=-1/(2\Delta x)$, $c=0$.
+:::
