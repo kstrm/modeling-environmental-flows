@@ -32,6 +32,14 @@ Modules on HEC-RAS (1D and 2D) and Delft3D (3D) will follow. Two reference pages
 
 Every lecture notebook comes in two versions. The **student version** has blanks for you to fill in and lives in each module's `notebooks/` folder in the [GitHub repository](https://github.com/kstrm/modeling-environmental-flows). The **completed version** is rendered in this book, with outputs, so you can check your work.
 
+### Run the code
+
+There are three ways to run the code, from quickest to most flexible:
+
+1. **On the page.** On pages that contain code, press the power button at the top of the page. After a minute or two a free, temporary Jupyter session (hosted by Binder) starts and you can edit and run the cells right here. Nothing is saved, so copy anything you want to keep. If the session does not start (the free service is sometimes busy), use option 2 or 3.
+2. **In Google Colab.** Each lesson links to the student version of its notebook. Colab needs only a Google account and lets you save your work to Drive.
+3. **On your own computer,** which is best for the larger exercises and the capstone project.
+
 To run notebooks on your own computer:
 
 ```bash

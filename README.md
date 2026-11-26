@@ -24,6 +24,8 @@ pip install -r requirements.txt
 jupyter lab
 ```
 
+The book also offers a "run the code on this page" button (Binder, configured in `binder/environment.yml`).
+
 To build the book: `pip install mystmd && myst build --html`.
 
 ## License

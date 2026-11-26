@@ -8,6 +8,7 @@ on:
     paths:
       - '**/completed/*.ipynb'
       - 'requirements.txt'
+      - 'binder/environment.yml'
       - '.github/workflows/test-notebooks.yml'
   pull_request:
     paths:
@@ -27,6 +28,13 @@ jobs:
         with:
           python-version: '3.13'
           cache: pip
+      - name: Check the Binder environment matches requirements.txt
+        run: |
+          python - <<'PY'
+          req = [l.strip() for l in open('requirements.txt') if l.strip() and not l.startswith('#')]
+          env = [l.strip()[2:] for l in open('binder/environment.yml') if l.startswith('    - ')]
+          assert req == env, f'binder/environment.yml is out of sync:\n{req}\n{env}'
+          PY
       - name: Install requirements
         run: |
           pip install -r requirements.txt nbconvert

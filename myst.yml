@@ -5,6 +5,10 @@ project:
   authors:
     - name: Kyle Strom
   github: kstrm/modeling-environmental-flows
+  jupyter:
+    binder:
+      repo: kstrm/modeling-environmental-flows
+      ref: main
   exclude:
     - README.md
     - LICENSE-CONTENT
