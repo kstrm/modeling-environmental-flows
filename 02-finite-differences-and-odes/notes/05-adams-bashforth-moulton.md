@@ -15,7 +15,7 @@ After this lesson you should be able to:
 
 Multistep methods use information from previous grid points to advance to $i+1$, in contrast to Runge–Kutta methods, which use only information at step $i$ (with extra evaluations inside the step).
 
-- **Adams–Bashforth** (explicit): uses slopes already computed at $i,\,i-1,\,i-2,\ldots$
+- **Adams–Bashforth** (explicit): uses slopes already computed at $i, i-1, i-2,\ldots$
 - **Adams–Moulton** (implicit): also uses the unknown slope at $i+1$ (and, for higher order, earlier points). The one-step Adams–Moulton method is the trapezoidal rule, known as Crank–Nicolson when applied to PDEs.
 
 ## Idea

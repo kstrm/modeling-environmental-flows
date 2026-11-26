@@ -93,5 +93,5 @@ The depth becomes slightly negative, so $\sqrt{2gh}$ is undefined and NumPy retu
 **4.** How do you know the numerical implementation is correct?
 
 :::{dropdown} Answer
-For $Q_{in}=0$ there is an analytic solution, $h(t)=[h_0^{1/2}-(d^2/D^2)\sqrt{g/2}\,t]^2$, to compare against.
+For $Q_{in}=0$ there is an analytic solution, $h(t)=[h_0^{1/2}-(d^2/D^2)\sqrt{g/2}\ t]^2$, to compare against.
 :::

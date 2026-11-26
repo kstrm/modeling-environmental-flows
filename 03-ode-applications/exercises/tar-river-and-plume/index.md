@@ -43,7 +43,7 @@ Try the problem first. Each hint is hidden until you open it, and the hints go f
 **Problem 1.1 (normal depth)**
 
 :::{dropdown} Hint
-Normal depth is the depth at which Manning's equation, with the bed slope as the friction slope, gives the discharge $Q$. Write $Q_{Manning}(h)-Q$ as a function and find its root with `scipy.optimize.brentq` on a bracket such as $[0.01,\,30]$ m.
+Normal depth is the depth at which Manning's equation, with the bed slope as the friction slope, gives the discharge $Q$. Write $Q_{Manning}(h)-Q$ as a function and find its root with `scipy.optimize.brentq` on a bracket such as $[0.01, 30]$ m.
 :::
 
 **Problem 1.2 (backwater profiles)**
@@ -57,7 +57,7 @@ Information about the downstream boundary travels upstream, so integrate **from 
 :::
 
 :::{dropdown} Hint 3
-The bed elevation is $\eta=-h_n+S_o\,x_{up}$ with $h_n$ the normal depth from 1.1 (the bed at Washington sits at $-h_n$). The water-surface elevation is $\eta+h$, and the velocity is $Q/A$. A 10 ft storm surge is about 3.05 m of added downstream depth.
+The bed elevation is $\eta=-h_n+S_o\ x_{up}$ with $h_n$ the normal depth from 1.1 (the bed at Washington sits at $-h_n$). The water-surface elevation is $\eta+h$, and the velocity is $Q/A$. A 10 ft storm surge is about 3.05 m of added downstream depth.
 :::
 
 **Problems 1.3 to 1.5**
@@ -73,7 +73,7 @@ Unknowns: $u$, $h$, $w$, $\Delta\rho$, with $Q=uhw$. Compute the initial density
 :::
 
 :::{dropdown} Hint 2
-The entrainment velocity is $w_e=\delta\,u$, with the constant ratio $\delta$ given in the inlet files as the entrainment velocity ratio. The critical densimetric Froude number in the same file is the condition at lift-off. One way to set the initial plume thickness is to find $h_0$ such that $Fr_d=u_0/\sqrt{g'h_0}$ equals it, with $u_0=Q/(w_0h_0)$.
+The entrainment velocity is $w_e=\delta\ u$, with the constant ratio $\delta$ given in the inlet files as the entrainment velocity ratio. The critical densimetric Froude number in the same file is the condition at lift-off. One way to set the initial plume thickness is to find $h_0$ such that $Fr_d=u_0/\sqrt{g'h_0}$ equals it, with $u_0=Q/(w_0h_0)$.
 :::
 
 :::{dropdown} Hint 3

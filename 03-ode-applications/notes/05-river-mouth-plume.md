@@ -53,7 +53,7 @@ $$\frac{du}{dx}=\frac{u}{1-Ri}\left[\left(1+\frac{Ri}{2}\right)\frac1{\Delta\rho
 
 $$\frac{dw}{dx}=2Ri^{1/2}=\frac{2\sqrt{g'h}}{u}.\tag{A13}$$
 
-(Here $dx=u\,dt$, so the speed per unit time converts to a rate per unit distance.)
+(Here $dx=u\ dt$, so the speed per unit time converts to a rate per unit distance.)
 
 ## Closure and solution
 
@@ -88,7 +88,7 @@ Slot-jet formulations assume $w/h=O(1)$, but for rivers $w/h\gg1$. Hetland and M
 **3.** Which quantity is conserved in the plume mass equation?
 
 :::{dropdown} Answer
-The buoyancy deficit $Q\,\Delta\rho$.
+The buoyancy deficit $Q\ \Delta\rho$.
 :::
 
 **4.** How do the variables change downstream?

@@ -19,7 +19,7 @@ After this lesson you should be able to:
 
 A model replaces a continuous physical domain governed by PDEs with a discrete domain and a system of algebraic equations, which is then solved on a computer.
 
-- Continuous equations contain terms such as $u\,\partial u/\partial x$ and $\partial u/\partial t$.
+- Continuous equations contain terms such as $u\ \partial u/\partial x$ and $\partial u/\partial t$.
 - These derivatives are approximated with algebraic expressions on a discrete grid.
 
 **Motivating example:** salt concentration in a river reaching the sea (e.g., the Fraser River estuary). Where do we want the concentration (a point in space, a vertical profile)? What dynamics control it? Which equations express those dynamics mathematically?
@@ -79,9 +79,9 @@ i.e., the divergence at a point is zero.
 
 | Averaging | Definition | Continuity equation |
 |---|---|---|
-| Time averaged | $\bar u=\frac1T\int_t^{t+T}u\,dt$ | $\dfrac{\partial\bar u}{\partial x}+\dfrac{\partial\bar v}{\partial y}+\dfrac{\partial\bar w}{\partial z}=0$ |
-| Depth averaged (2D hydraulics) | $\tilde u=\frac1h\int_{z_b}^{z_s}\bar u\,dz$ | $\dfrac{\partial h}{\partial t}+\dfrac{\partial(h\tilde u)}{\partial x}+\dfrac{\partial(h\tilde v)}{\partial y}=0$ |
-| Cross-section averaged (1D hydraulics) | $U_{avg}=\frac1A\int_A\bar u\,dA$ | $\dfrac{\partial A}{\partial t}+\dfrac{\partial Q}{\partial x}=0$ (no lateral inflow), $Q=U_{avg}A$ |
+| Time averaged | $\bar u=\frac1T\int_t^{t+T}u\ dt$ | $\dfrac{\partial\bar u}{\partial x}+\dfrac{\partial\bar v}{\partial y}+\dfrac{\partial\bar w}{\partial z}=0$ |
+| Depth averaged (2D hydraulics) | $\tilde u=\frac1h\int_{z_b}^{z_s}\bar u\ dz$ | $\dfrac{\partial h}{\partial t}+\dfrac{\partial(h\tilde u)}{\partial x}+\dfrac{\partial(h\tilde v)}{\partial y}=0$ |
+| Cross-section averaged (1D hydraulics) | $U_{avg}=\frac1A\int_A\bar u\ dA$ | $\dfrac{\partial A}{\partial t}+\dfrac{\partial Q}{\partial x}=0$ (no lateral inflow), $Q=U_{avg}A$ |
 
 Here $h=z_s-z_b$ is the flow depth and $Q$ is the volumetric flow rate.
 
@@ -144,7 +144,7 @@ $$\frac{\partial Q}{\partial t}+\frac{\partial}{\partial x}\left(\beta\frac{Q^2}
 
 - All solve for some form of velocity (or another variable such as depth or concentration).
 - All contain spatial and temporal derivatives, so they are PDEs, not ODEs.
-- They share common derivative types: $\partial u/\partial t$, $u\,\partial u/\partial x$ and $\nu\,\partial^2u/\partial x^2$.
+- They share common derivative types: $\partial u/\partial t$, $u\ \partial u/\partial x$ and $\nu\ \partial^2u/\partial x^2$.
 
 ## Take-aways
 

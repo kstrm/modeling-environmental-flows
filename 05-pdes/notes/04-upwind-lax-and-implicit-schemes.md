@@ -25,7 +25,7 @@ Information travels in the direction of the flow, so the spatial difference shou
 
 $$u_i^{n+1}=\begin{cases}u_i^n-\nu\,(u_i^n-u_{i-1}^n)&c>0\\u_i^n-\nu\,(u_{i+1}^n-u_i^n)&c<0\end{cases}$$
 
-with $\nu=c\,\Delta t/\Delta x$. This is FTBS for $c>0$. It is stable for $|\nu|\le1$ and first-order accurate, and its numerical diffusion, $\tfrac{|c|\Delta x}{2}(1-|\nu|)$, is the price of the robustness. When the flow direction varies in space or time (tidal rivers, recirculation), the upwind direction must be chosen point by point.
+with $\nu=c\ \Delta t/\Delta x$. This is FTBS for $c>0$. It is stable for $|\nu|\le1$ and first-order accurate, and its numerical diffusion, $\tfrac{|c|\Delta x}{2}(1-|\nu|)$, is the price of the robustness. When the flow direction varies in space or time (tidal rivers, recirculation), the upwind direction must be chosen point by point.
 
 ### Lax (Lax–Friedrichs) method
 
@@ -37,7 +37,7 @@ This stabilizes FTCS for $|\nu|\le1$. Rewritten as FTCS plus a term, it adds num
 
 ### Lax–Wendroff method
 
-Use a Taylor series in time to second order, $u^{n+1}=u^n+\Delta t\,u_t+\tfrac{\Delta t^2}2u_{tt}$, and replace $u_t=-c\,u_x$ and $u_{tt}=c^2u_{xx}$:
+Use a Taylor series in time to second order, $u^{n+1}=u^n+\Delta t\ u_t+\tfrac{\Delta t^2}2u_{tt}$, and replace $u_t=-c\ u_x$ and $u_{tt}=c^2u_{xx}$:
 
 $$u_i^{n+1}=u_i^n-\frac\nu2\left(u_{i+1}^n-u_{i-1}^n\right)+\frac{\nu^2}2\left(u_{i+1}^n-2u_i^n+u_{i-1}^n\right).$$
 
@@ -65,7 +65,7 @@ Upwind gives a monotone, smeared solution; Lax–Wendroff gives a sharp solution
 
 ## Diffusion and advection–diffusion
 
-Explicit FTCS for $u_t=\nu_d\,u_{xx}$ is stable only for $r=\nu_d\Delta t/\Delta x^2\le\tfrac12$. For advection–diffusion $u_t+c\,u_x=\nu_d\,u_{xx}$ with upwind advection and central diffusion, stability requires $\nu+2r\le1$.
+Explicit FTCS for $u_t=\nu_d\ u_{xx}$ is stable only for $r=\nu_d\Delta t/\Delta x^2\le\tfrac12$. For advection–diffusion $u_t+c\ u_x=\nu_d\ u_{xx}$ with upwind advection and central diffusion, stability requires $\nu+2r\le1$.
 
 **Cell Péclet number.** The ratio of advection to diffusion across one cell, $Pe_\Delta=|c|\Delta x/\nu_d$, controls accuracy. If it is large, central differencing of the advective term (FTCS-type) tends to produce wiggles and upwinding is preferred, but then the numerical diffusion $\tfrac{c\Delta x}{2}(1-\nu)$ can exceed the physical diffusion $\nu_d$. For a dispersion problem such as a spill, the grid spacing must be fine enough that the numerical diffusion is small compared with $D_L$.
 

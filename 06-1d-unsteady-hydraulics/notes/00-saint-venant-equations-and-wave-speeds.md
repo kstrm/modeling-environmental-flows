@@ -48,7 +48,7 @@ The terms are:
 | $ghS_0$ | gravity component along the bed, $S_0=-\partial z_b/\partial x$ |
 | $ghS_f$ | bed friction, e.g. Manning: $S_f=n^2u|u|/h^{4/3}$ (SI units) |
 
-Together with the conservative form $\mathbf U_t+\mathbf F_x=\mathbf S$ with $\mathbf U=(h,hu)^T$ and $\mathbf F=(hu,\;hu^2+\tfrac12gh^2)^T$, these are the **Saint-Venant** (or shallow-water) equations. In terms of $(h,u)$ and for a frictionless, horizontal channel without lateral inflow,
+Together with the conservative form $\mathbf U_t+\mathbf F_x=\mathbf S$ with $\mathbf U=(h,hu)^T$ and $\mathbf F=(hu,\ hu^2+\tfrac12gh^2)^T$, these are the **Saint-Venant** (or shallow-water) equations. In terms of $(h,u)$ and for a frictionless, horizontal channel without lateral inflow,
 
 $$h_t+u\,h_x+h\,u_x=0,\qquad u_t+u\,u_x+g\,h_x=0.$$
 
@@ -58,7 +58,7 @@ $$h_t+u\,h_x+h\,u_x=0,\qquad u_t+u\,u_x+g\,h_x=0.$$
 
 *Figure: Control volume for the 1D equations (left) and characteristic directions for subcritical and supercritical flow (right).*
 
-Write the $(h,u)$ system as $\mathbf W_t+\mathbf A\,\mathbf W_x=\mathbf 0$, with
+Write the $(h,u)$ system as $\mathbf W_t+\mathbf A\ \mathbf W_x=\mathbf 0$, with
 
 $$\mathbf W=\begin{pmatrix}h\\u\end{pmatrix},\qquad\mathbf A=\begin{pmatrix}u&h\\g&u\end{pmatrix}.$$
 

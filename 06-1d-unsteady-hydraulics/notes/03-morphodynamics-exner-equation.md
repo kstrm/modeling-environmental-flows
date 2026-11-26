@@ -22,7 +22,7 @@ Consider a short bed segment of length $dx$ with bed elevation $\eta(x,t)$, so t
 
 $$(1-\lambda_p)\frac{\partial\eta}{\partial t}=-\frac{\partial q_t}{\partial x},$$
 
-where $\lambda_p$ is the porosity of the bed and $q_t=q_s+q_b$ is the total volumetric sediment flux per unit width, the sum of suspended load $q_s$ and bed load $q_b$. Where the transport capacity increases in the downstream direction ($\partial q_t/\partial x>0$) the bed erodes, and where it decreases the bed aggrades. With a width variation $w(x)$ the equation becomes the form used in the [MacCormack example](01-governing-equations-and-explicit-schemes.md), $\partial\eta/\partial t+\partial(q_s/(1-\lambda_p))/\partial x=-(1/w)(\partial w/\partial x)\,q_s/(1-\lambda_p)$.
+where $\lambda_p$ is the porosity of the bed and $q_t=q_s+q_b$ is the total volumetric sediment flux per unit width, the sum of suspended load $q_s$ and bed load $q_b$. Where the transport capacity increases in the downstream direction ($\partial q_t/\partial x>0$) the bed erodes, and where it decreases the bed aggrades. With a width variation $w(x)$ the equation becomes the form used in the [MacCormack example](01-governing-equations-and-explicit-schemes.md), $\partial\eta/\partial t+\partial(q_s/(1-\lambda_p))/\partial x=-(1/w)(\partial w/\partial x)\ q_s/(1-\lambda_p)$.
 
 ![Exner equation control volume and the sign of the bed change](../figures/exner-bed-change.svg)
 
@@ -66,7 +66,7 @@ Test yourself with the exercise **[Capstone project ideas](../exercises/capstone
 **1.** Write the Exner equation.
 
 :::{dropdown} Answer
-$(1-\lambda_p)\,\partial\eta/\partial t=-\partial q_t/\partial x$, with bed elevation $\eta$, bed porosity $\lambda_p$ and total volumetric sediment flux $q_t$ per unit width.
+$(1-\lambda_p)\ \partial\eta/\partial t=-\partial q_t/\partial x$, with bed elevation $\eta$, bed porosity $\lambda_p$ and total volumetric sediment flux $q_t$ per unit width.
 :::
 
 **2.** Where the transport rate increases downstream, does the bed erode or aggrade?

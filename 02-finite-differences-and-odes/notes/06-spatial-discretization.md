@@ -41,7 +41,7 @@ We can use these to estimate $f'$, $f''$, $f'''$ from $f(x_0)$, $f(x_0\pm\Delta 
 
 $$f'_j\approx\frac{f_{j+1}-f_j}{\Delta x}=f'_j+\tfrac12\Delta x\,f''_j+O(\Delta x^2)\qquad\text{first-order accurate.}$$
 
-Rewriting (1) as $f(x_0+\Delta x)\approx f(x_0)+\Delta x\,f'(x_0)$ is explicit Euler.
+Rewriting (1) as $f(x_0+\Delta x)\approx f(x_0)+\Delta x\ f'(x_0)$ is explicit Euler.
 
 **Backward difference** (solve (2) for $f'$; two-point stencil):
 

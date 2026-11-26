@@ -21,7 +21,7 @@ The exact solution is $u(x,t)=f(x-ct)$: the initial profile translates at speed 
 
 ## Step 1: Discretize the domain
 
-A grid in space and time: $x_i=i\,\Delta x$ and $t_n=n\,\Delta t$, with unknowns $u_{i,n}$ (or $u_i^n$).
+A grid in space and time: $x_i=i\ \Delta x$ and $t_n=n\ \Delta t$, with unknowns $u_{i,n}$ (or $u_i^n$).
 
 ![The space-time computational domain for the advection equation](../figures/space-time-domain.svg)
 
@@ -50,7 +50,7 @@ The stencil has 3 points on 2 time levels.
 
 ![Stencils of FTBS and FTCS](../figures/ftbs-ftcs-stencils.svg)
 
-*Figure: Stencils of the two schemes, with $\nu=c\,\Delta t/\Delta x$. Blue points are known values at $t_n$ and the orange point is the value being computed at $t_{n+1}$. FTBS uses the upstream neighbor only; FTCS uses both neighbors.*
+*Figure: Stencils of the two schemes, with $\nu=c\ \Delta t/\Delta x$. Blue points are known values at $t_n$ and the orange point is the value being computed at $t_{n+1}$. FTBS uses the upstream neighbor only; FTCS uses both neighbors.*
 
 
 ## Numerical experiment

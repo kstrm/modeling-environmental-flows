@@ -10,13 +10,13 @@ Symbols follow the lessons, which draw on several textbooks and papers, so a few
 
 | Symbol | Meaning |
 |---|---|
-| $x,\,y,\,z,\,t$ | space coordinates and time |
+| $x, y, z, t$ | space coordinates and time |
 | $\Delta x,\ \Delta t$ | grid spacing and time step |
-| $i,\,j$ (subscript) | grid point index in space |
+| $i, j$ (subscript) | grid point index in space |
 | $n$ or $k$ (superscript) | time level |
 | $N$ | number of intervals (so $N+1$ grid points) |
-| $\nu=c\,\Delta t/\Delta x$ | Courant number (advection) |
-| $r=\nu_d\,\Delta t/\Delta x^2$ | diffusion number |
+| $\nu=c\ \Delta t/\Delta x$ | Courant number (advection) |
+| $r=\nu_d\ \Delta t/\Delta x^2$ | diffusion number |
 | $Pe_\Delta=\lvert c\rvert\Delta x/\nu_d$ | cell Péclet number |
 | $G$ | amplification factor in von Neumann analysis |
 | $\theta$ | wavenumber times $\Delta x$ (phase angle per grid point) |
@@ -27,9 +27,9 @@ Symbols follow the lessons, which draw on several textbooks and papers, so a few
 
 | Symbol | Meaning |
 |---|---|
-| $u,\,v,\,w$ | velocity components |
+| $u, v, w$ | velocity components |
 | $\bar u$, $\tilde u$, $U$ or $V$ | time-averaged, depth-averaged and cross-section-averaged velocity |
-| $u',\,\overline{u_i'u_j'}$ | velocity fluctuation and Reynolds stress |
+| $u', \overline{u_i'u_j'}$ | velocity fluctuation and Reynolds stress |
 | $p,\ \rho,\ \mu,\ \nu$ | pressure, density, dynamic viscosity, kinematic viscosity |
 | $h$ | flow depth |
 | $A,\ P,\ R,\ T$ | flow area, wetted perimeter, hydraulic radius, top width |
@@ -47,7 +47,7 @@ Symbols follow the lessons, which draw on several textbooks and papers, so a few
 | Symbol | Meaning |
 |---|---|
 | $\rho_a,\ \Delta\rho=\rho_a-\rho$ | ambient density and density deficit of a plume |
-| $g'=\dfrac{\rho-\rho_a}{\rho}\,g$ | reduced gravity (magnitude used in the plume equations) |
+| $g'=\dfrac{\rho-\rho_a}{\rho}\ g$ | reduced gravity (magnitude used in the plume equations) |
 | $Fr_d=u/\sqrt{g'h}$ | densimetric Froude number |
 | $Ri=g'h/u^2=1/Fr_d^2$ | bulk Richardson number |
 | $w_e,\ \delta=w_e/u$ | entrainment velocity and entrainment ratio |

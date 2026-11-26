@@ -20,7 +20,7 @@ where $C$ is mass concentration ($\mathrm{kg/m^3}$). For an instantaneous volume
 
 $$\frac{C}{C_o}=\frac12\left[\operatorname{erf}\!\left(\frac{x-Ut}{\sqrt{4D_Lt}}\right)-\operatorname{erf}\!\left(\frac{x-L-Ut}{\sqrt{4D_Lt}}\right)\right],$$
 
-where $C_o$ is the initial concentration ($C=C_o$ for $0\le x\le L$ at $t=0$), $D_L$ is the longitudinal dispersion coefficient and $L$ is the initial length of the cloud. Take $L=U\,\Delta t_{spill}$ and $D_L=42\ \mathrm{m^2/s}$. (Choose a reasonable river velocity $U$ and cross-sectional area, and state them.)
+where $C_o$ is the initial concentration ($C=C_o$ for $0\le x\le L$ at $t=0$), $D_L$ is the longitudinal dispersion coefficient and $L$ is the initial length of the cloud. Take $L=U\ \Delta t_{spill}$ and $D_L=42\ \mathrm{m^2/s}$. (Choose a reasonable river velocity $U$ and cross-sectional area, and state them.)
 
 1. Using the initial condition and the analytic solution, make two figures:
    1. $C$ vs $x$: the initial distribution and the distribution 2 hours after the accident. From the figure, find the location of the center of mass of the cloud, the maximum concentration in the river and the characteristic width of the cloud at $t=2$ h.
@@ -30,7 +30,7 @@ where $C_o$ is the initial concentration ($C=C_o$ for $0\le x\le L$ at $t=0$), $
    - give the specific limits on $\Delta x$ and $\Delta t$ for this problem;
    - show empirically that the stability conditions must be met.
 3. Compare the numerical and analytic solutions by plotting the numerical output on the two figures from problem 1. Show how the $t=2$ h solution changes with $\Delta x$. Which discretization is more accurate?
-4. Upwind schemes produce numerical diffusion. How close to the analytic solution can you get by solving only the pure advection equation $\partial C/\partial t+U\,\partial C/\partial x=0$ with FTBS? What controls the amount of numerical diffusion?
+4. Upwind schemes produce numerical diffusion. How close to the analytic solution can you get by solving only the pure advection equation $\partial C/\partial t+U\ \partial C/\partial x=0$ with FTBS? What controls the amount of numerical diffusion?
 
 ## Hints
 
@@ -39,11 +39,11 @@ Try the problem first. Each hint is hidden until you open it, and the hints go f
 **Problem 1 (analytic solution)**
 
 :::{dropdown} Hint 1
-The initial cloud length is $L=U\,\Delta t_{spill}$ and its concentration is $C_o=M/(AL)$, using your assumed $U$ and cross-sectional area $A$. Use `scipy.special.erf` for the solution.
+The initial cloud length is $L=U\ \Delta t_{spill}$ and its concentration is $C_o=M/(AL)$, using your assumed $U$ and cross-sectional area $A$. Use `scipy.special.erf` for the solution.
 :::
 
 :::{dropdown} Hint 2
-To find the center of mass and width at $t=2$ h, integrate numerically with `np.trapezoid(C, x)`: the center is $\int xC\,dx/\int C\,dx$. A cloud spreading by dispersion has $\sigma^2\approx2D_Lt$ (plus $L^2/12$ for the initial top-hat shape), which you can use to check your numbers.
+To find the center of mass and width at $t=2$ h, integrate numerically with `np.trapezoid(C, x)`: the center is $\int xC\ dx/\int C\ dx$. A cloud spreading by dispersion has $\sigma^2\approx2D_Lt$ (plus $L^2/12$ for the initial top-hat shape), which you can use to check your numbers.
 :::
 
 :::{dropdown} Hint 3

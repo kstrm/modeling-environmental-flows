@@ -87,7 +87,7 @@ which is in the general form with $p=q=0$ and $r=-G/\mu$. Boundary conditions: $
 
 $$D_2=\frac1{\Delta z^2}\begin{bmatrix}-1&0&0&\cdots&0\\1&-2&1&\cdots&0\\0&1&-2&1&\cdots\\&&\ddots&&\\0&\cdots&0&1&-2&1\\0&\cdots&&0&-1\end{bmatrix}\quad(\text{first and last rows hold the BC}),$$
 
-and the right-hand side is $[r^*]=[U_b,\;G/\mu,\ldots,G/\mu,\;U_t]$ with the sign convention of the solve below. Why does this impose the BCs? Row 1 gives $-u_1=-U_b$, i.e. $u_1=U_b$; the last row gives $u_{N+1}=U_t$.
+and the right-hand side is $[r^*]=[U_b,\ G/\mu,\ldots,G/\mu,\ U_t]$ with the sign convention of the solve below. Why does this impose the BCs? Row 1 gives $-u_1=-U_b$, i.e. $u_1=U_b$; the last row gives $u_{N+1}=U_t$.
 
 ```python
 import numpy as np
@@ -116,7 +116,7 @@ u = linalg.solve(D2, -r)
 
 ![Poiseuille-Couette velocity profiles for several pressure gradients](../figures/poiseuille-couette-profiles.svg)
 
-*Figure: Solutions of the Poiseuille–Couette problem with $U_b=0$. With $P=-G\,h^2/(2\mu U_t)$ the profile is $u/U_t=\zeta+P\zeta(1-\zeta)$, $\zeta=z/h$. $P=0$ is pure Couette flow (linear). Positive $P$ adds a pressure-driven bulge, and a sufficiently adverse pressure gradient ($P<-1$) reverses the flow near the stationary plate. The finite-difference solution of the matrix system agrees with this analytic profile to round-off.*
+*Figure: Solutions of the Poiseuille–Couette problem with $U_b=0$. With $P=-G\ h^2/(2\mu U_t)$ the profile is $u/U_t=\zeta+P\zeta(1-\zeta)$, $\zeta=z/h$. $P=0$ is pure Couette flow (linear). Positive $P$ adds a pressure-driven bulge, and a sufficiently adverse pressure gradient ($P<-1$) reverses the flow near the stationary plate. The finite-difference solution of the matrix system agrees with this analytic profile to round-off.*
 
 ### Without loops
 
@@ -167,7 +167,7 @@ The row is $-1$ on the diagonal with zeros elsewhere and the right-hand side hol
 **3.** What does an interior row of $D_2$ look like?
 
 :::{dropdown} Answer
-$[1,\,-2,\,1]/\Delta z^2$ centered on the diagonal.
+$[1, -2, 1]/\Delta z^2$ centered on the diagonal.
 :::
 
 **4.** Why use `linalg.solve(A, B)` rather than `inv(A) @ B`?

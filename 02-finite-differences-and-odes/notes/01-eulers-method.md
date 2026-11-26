@@ -31,7 +31,7 @@ Notes:
 
 1. $f(x,y)$ is the slope of $y$ with respect to $x$.
 2. New value = old value + slope × step size.
-3. This is the equation of a line, $y_2-y_1=m\,(x_2-x_1)$ with $m=f(x_1,y_1)$.
+3. This is the equation of a line, $y_2-y_1=m\ (x_2-x_1)$ with $m=f(x_1,y_1)$.
 4. It is only the true solution for a line (constant slope). Otherwise it is an approximation whose quality depends on the step size.
 
 ## Explicit and implicit versions
@@ -94,7 +94,7 @@ Now see the method run on the example above. Work through **[Euler's method](../
 **1.** Write one explicit Euler step for $dy/dx=f(x,y)$.
 
 :::{dropdown} Answer
-$y_{i+1}=y_i+f(x_i,y_i)\,\Delta x$: the new value is the old value plus the slope times the step.
+$y_{i+1}=y_i+f(x_i,y_i)\ \Delta x$: the new value is the old value plus the slope times the step.
 :::
 
 **2.** When does explicit Euler give the exact solution?

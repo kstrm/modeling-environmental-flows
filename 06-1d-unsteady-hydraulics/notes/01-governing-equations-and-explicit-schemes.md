@@ -29,7 +29,7 @@ $$\frac{\partial Q}{\partial t}+\frac{\partial(QV)}{\partial x}+gA\frac{\partial
 
 ### Vector forms
 
-Non-conservative form, $\partial\mathbf U/\partial t+\mathbf A\,\partial\mathbf U/\partial x=\mathbf S$ with
+Non-conservative form, $\partial\mathbf U/\partial t+\mathbf A\ \partial\mathbf U/\partial x=\mathbf S$ with
 
 $$\mathbf U=\begin{pmatrix}y\\V\end{pmatrix},\quad\mathbf A=\begin{pmatrix}V&D\\g&V\end{pmatrix},\quad\mathbf S=\begin{pmatrix}-q_l/B\\g(S_o-S_f)\end{pmatrix}.$$
 

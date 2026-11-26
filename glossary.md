@@ -30,7 +30,7 @@ Short definitions of terms used in the lessons, with a link to where each is dev
 
 **Convergence.** The numerical solution approaches the true solution as the grid is refined. [Stability and von Neumann analysis](05-pdes/notes/03-stability-cfl-and-von-neumann.md)
 
-**Courant number ($\nu$).** $c\,\Delta t/\Delta x$: the number of grid cells information travels per time step. [Stability and von Neumann analysis](05-pdes/notes/03-stability-cfl-and-von-neumann.md)
+**Courant number ($\nu$).** $c\ \Delta t/\Delta x$: the number of grid cells information travels per time step. [Stability and von Neumann analysis](05-pdes/notes/03-stability-cfl-and-von-neumann.md)
 
 **CFL condition.** The requirement that the numerical domain of dependence include the physical one; for the schemes in this course, $\nu\le1$. [Stability and von Neumann analysis](05-pdes/notes/03-stability-cfl-and-von-neumann.md)
 

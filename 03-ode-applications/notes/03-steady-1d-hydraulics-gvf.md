@@ -24,7 +24,7 @@ $$\frac{\partial Q}{\partial t}+\frac{\partial}{\partial x}\left(\beta\frac{Q^2}
 Assume steady flow, $\partial/\partial t=0$. The PDEs become ODEs:
 
 - Continuity: $dQ/dx=0$, so $Q$ is constant.
-- Momentum: $\dfrac{d}{dx}\left(\beta\dfrac{Q^2}{A}+gh_cA\right)=gA\,(S_o-S_f)$, with a velocity-head and a pressure-head term.
+- Momentum: $\dfrac{d}{dx}\left(\beta\dfrac{Q^2}{A}+gh_cA\right)=gA\ (S_o-S_f)$, with a velocity-head and a pressure-head term.
 
 It can be shown that this reduces to
 
@@ -57,7 +57,7 @@ The friction slope comes from Manning's equation,
 
 $$Q=\frac{c_0}{n}AR^{2/3}S_f^{1/2}\;\Rightarrow\;S_{f,i}=\left[\frac{Qn}{c_0A_iR_i^{2/3}}\right]^2,$$
 
-with $c_0=1$ in SI units (1.49 in US customary units), or equivalently from $S_{f,i}=C_{f,i}Fr_i^2$. A resistance law such as the Strickler form $C_f^{-1/2}=U/u_*=\alpha\,(h/k_s)^{1/6}$, i.e. $C_f=\alpha^{-2}(h/k_s)^{-1/3}$, can be used for $C_f$.
+with $c_0=1$ in SI units (1.49 in US customary units), or equivalently from $S_{f,i}=C_{f,i}Fr_i^2$. A resistance law such as the Strickler form $C_f^{-1/2}=U/u_*=\alpha\ (h/k_s)^{1/6}$, i.e. $C_f=\alpha^{-2}(h/k_s)^{-1/3}$, can be used for $C_f$.
 
 There is nothing special about the direct step: it is just a numerical method.
 

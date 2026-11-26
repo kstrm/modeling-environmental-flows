@@ -69,7 +69,7 @@ $$F_D=m_{sub}\,g_x=(\rho_2-\rho_1)(hwL)\,g\sin\alpha.$$
 
 - (I) Water under air ($\rho_1=1.2$, $\rho_2=1000$ kg/m³): $\rho_2-\rho_1\approx\rho_{water}$, so $F_D\approx\rho_{water}g(hwL)\sin\alpha$.
 - (II) $\rho_1=\rho_2$: $F_D=0$, so there is no driving force.
-- (III) Seawater under freshwater ($\rho_1=1000$, $\rho_2=1025$ kg/m³): $F_D=(25\ \mathrm{kg/m^3})\,g\,(hwL)\sin\alpha$.
+- (III) Seawater under freshwater ($\rho_1=1000$, $\rho_2=1025$ kg/m³): $F_D=(25\ \mathrm{kg/m^3})\ g\ (hwL)\sin\alpha$.
 
 The ratio of driving forces, salt/fresh versus fresh/air, is $25/1000=0.025$, about 2.5 %. So the saltwater-over-air case ($V_2$) is much faster than saltwater over freshwater ($V_1$).
 

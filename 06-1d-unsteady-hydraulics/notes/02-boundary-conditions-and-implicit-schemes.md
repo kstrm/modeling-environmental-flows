@@ -35,7 +35,7 @@ At the upstream boundary only the C2 relation reaches the boundary, and at the d
 |---|---|
 | Upstream reservoir | $y_i^{k+1}=y_{res}+(1+K)\dfrac{(V_{i,1}^{k+1})^2}{2g}$ |
 | Downstream reservoir | $y_{i,n+1}^{k+1}=y_{res}-(1-K)\dfrac{(V_{i,n+1}^{k+1})^2}{2g}$ |
-| Sluice gate | $Q_{i,n+1}^{k+1}=C_dA_g\sqrt{2g\,y_{i,n+1}^{k+1}}$ |
+| Sluice gate | $Q_{i,n+1}^{k+1}=C_dA_g\sqrt{2g\ y_{i,n+1}^{k+1}}$ |
 | Rating curve | $Q=f(y_{i,n+1}^{k+1})$ |
 | Series junction | continuity $V_{i,n+1}A_{i,n+1}=V_{i+1,1}A_{i+1,1}$ and energy $z_i+y_{i,n+1}+\dfrac{V_{i,n+1}^2}{2g}=z_{i+1}+y_{i+1,1}+(1+K)\dfrac{V_{i+1,1}^2}{2g}$ |
 
@@ -69,8 +69,8 @@ $$\mathbf U_i^{k+1}+\mathbf U_{i+1}^{k+1}+2\frac{\Delta t}{\Delta x}\left[\alpha
 2. Add the boundary conditions.
 3. Solve the resulting system of **nonlinear** equations, e.g. by Newton–Raphson:
    - Estimate the unknowns $A$ and $V$.
-   - With the Jacobian $J_{ij}=\partial F_i/\partial x_j$, linearize $\vec F(\vec x+\delta\vec x)=\vec F(\vec x)+J\,\delta\vec x+O(\delta\vec x^2)$.
-   - Solve $J\,\delta\vec x=-\vec F$ for $\delta\vec x$ (the linear solve from the [relaxation note](../../04-boundary-value-problems/notes/01-relaxation-method.md)) and update $\vec x_{new}=\vec x_{old}+\delta\vec x$.
+   - With the Jacobian $J_{ij}=\partial F_i/\partial x_j$, linearize $\vec F(\vec x+\delta\vec x)=\vec F(\vec x)+J\ \delta\vec x+O(\delta\vec x^2)$.
+   - Solve $J\ \delta\vec x=-\vec F$ for $\delta\vec x$ (the linear solve from the [relaxation note](../../04-boundary-value-problems/notes/01-relaxation-method.md)) and update $\vec x_{new}=\vec x_{old}+\delta\vec x$.
    - Repeat until $\delta\vec x$ is small (this needs the partial derivatives of the equations and boundary conditions).
 
 ## Check your understanding

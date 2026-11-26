@@ -54,7 +54,7 @@ For the ODE variable $\xi(t)$:
 
 $$\xi_{i+1}=\xi_i+\Delta t\,\dot\xi_i+\frac{\Delta t^2}{2!}\ddot\xi_i+\frac{\Delta t^3}{3!}\xi^{(3)}_i+\cdots$$
 
-Euler's method, $\xi_{i+1}=\xi_i+\Delta t\,g(\xi_i,t_i)$ with $g=\dot\xi_i$, agrees with the Taylor series up to first order, so it is a **first-order accurate** scheme. Equivalently,
+Euler's method, $\xi_{i+1}=\xi_i+\Delta t\ g(\xi_i,t_i)$ with $g=\dot\xi_i$, agrees with the Taylor series up to first order, so it is a **first-order accurate** scheme. Equivalently,
 
 $$\dot\xi_i=\frac{\xi_{i+1}-\xi_i}{\Delta t}+O(\Delta t),$$
 

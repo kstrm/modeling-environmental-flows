@@ -72,7 +72,7 @@ $$G=1-\mathrm{i}\,\nu\sin\theta,\qquad|G|^2=1+\nu^2\sin^2\theta>1\ \text{for eve
 
 FTCS is unstable for advection for any $\nu\neq0$. Decreasing $\Delta t$ does not help, only slows the growth per step.
 
-**Example: diffusion with FTCS.** For $u_t=\nu_d\,u_{xx}$ and $u_i^{n+1}=u_i^n+r(u_{i+1}^n-2u_i^n+u_{i-1}^n)$ with $r=\nu_d\Delta t/\Delta x^2$,
+**Example: diffusion with FTCS.** For $u_t=\nu_d\ u_{xx}$ and $u_i^{n+1}=u_i^n+r(u_{i+1}^n-2u_i^n+u_{i-1}^n)$ with $r=\nu_d\Delta t/\Delta x^2$,
 
 $$G=1-4r\sin^2(\theta/2),$$
 

@@ -40,19 +40,19 @@ a $p$th-order PDE with $P$ a polynomial in $\partial/\partial x$. (Be able to sa
 
 *Figure: Advection translates a profile without changing its shape; diffusion spreads it and lowers the peak.*
 
-**1. Advection**, $P=-c\,\partial/\partial x$ with constant advective speed $c$:
+**1. Advection**, $P=-c\ \partial/\partial x$ with constant advective speed $c$:
 
 $$\frac{\partial u}{\partial t}=-c\frac{\partial u}{\partial x}\qquad(1\text{ IC},\;1\text{ BC}).$$
 
 Local change equals moving spatial change. If $u$ decreases in $x$ and the field moves right at speed $c$, then at a fixed point $u$ increases in time. Advection is a *conservative* process: it translates the profile but does not deform it.
 
-**2. Diffusion**, $P=\nu\,\partial^2/\partial x^2$ with diffusion coefficient $\nu$:
+**2. Diffusion**, $P=\nu\ \partial^2/\partial x^2$ with diffusion coefficient $\nu$:
 
 $$\frac{\partial u}{\partial t}=\nu\frac{\partial^2u}{\partial x^2}\qquad(2\text{ BC},\;1\text{ IC}).$$
 
-The local change is driven by the curvature of $u$ in space. Spatial gradients produce a diffusive flux $-\nu\,\partial u/\partial x$, and the local change is the spatial difference in that flux. Diffusion *dissipates* energy and momentum: a peak spreads and flattens in time.
+The local change is driven by the curvature of $u$ in space. Spatial gradients produce a diffusive flux $-\nu\ \partial u/\partial x$, and the local change is the spatial difference in that flux. Diffusion *dissipates* energy and momentum: a peak spreads and flattens in time.
 
-**3. Advection–diffusion**, $P=-c\,\partial/\partial x+\nu\,\partial^2/\partial x^2$:
+**3. Advection–diffusion**, $P=-c\ \partial/\partial x+\nu\ \partial^2/\partial x^2$:
 
 $$\frac{\partial u}{\partial t}=-c\frac{\partial u}{\partial x}+\nu\frac{\partial^2u}{\partial x^2},$$
 
@@ -79,7 +79,7 @@ which is the Poisson equation for $\lambda=0$.
 **1.** Why is Burgers' equation nonlinear while advection–diffusion is linear?
 
 :::{dropdown} Answer
-In Burgers' equation the advecting speed is $u$ itself, so the term $u\,\partial u/\partial x$ is not first power in the unknown. In advection–diffusion the speed $c$ is a constant.
+In Burgers' equation the advecting speed is $u$ itself, so the term $u\ \partial u/\partial x$ is not first power in the unknown. In advection–diffusion the speed $c$ is a constant.
 :::
 
 **2.** What does advection do to a profile, and what does diffusion do?
