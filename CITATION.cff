@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this course in your teaching or research, please cite it as below."
+title: "Modeling of Environmental Flows"
+abstract: "An open, hands-on course on numerical modeling of flow and transport in rivers, estuaries and other natural environments, taught with Python and Jupyter notebooks."
+type: software
+authors:
+  - family-names: Strom
+    given-names: Kyle
+version: 0.1.0
+date-released: 2026-11-25
+license:
+  - MIT
+  - CC-BY-NC-4.0
+repository-code: "https://github.com/kstrm/modeling-environmental-flows"
+url: "https://kstrm.github.io/modeling-environmental-flows/"
+keywords:
+  - environmental fluid mechanics
+  - numerical methods
+  - finite differences
+  - hydraulics
+  - open educational resource

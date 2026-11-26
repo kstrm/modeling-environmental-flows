@@ -26,7 +26,7 @@ Each module contains lesson notes, notebooks to work through, and exercises. The
 | 05 PDEs | Advection, diffusion, advection-diffusion, CFL stability, implicit schemes |
 | 06 1D unsteady hydraulics | Saint-Venant equations, explicit and implicit schemes, morphodynamics (Exner equation) |
 
-Modules on HEC-RAS (1D and 2D) and Delft3D (3D) will follow. Two reference pages help along the way: [Notation](notation.md) and the [Glossary](glossary.md).
+Modules on HEC-RAS (1D and 2D) and Delft3D (3D) will follow. Two reference pages help along the way: [Notation](notation.md) and the [Glossary](glossary.md). If you are teaching from the course, see the [Notes for instructors](instructors.md).
 
 ## Using the notebooks
 

@@ -28,6 +28,10 @@ The book also offers a "run the code on this page" button (Binder, configured in
 
 To build the book: `pip install mystmd && myst build --html`.
 
+## For instructors and citation
+
+Suggested pacing and teaching notes are in [Notes for instructors](instructors.md). To cite the course, use the "Cite this repository" panel on GitHub (from `CITATION.cff`).
+
 ## License
 
 - **Code and notebooks:** [MIT](LICENSE).
