@@ -46,6 +46,11 @@ $$L^*=\begin{bmatrix}-1&0&0&\cdots\\&\text{rows }2\text{ to }N\text{ same as }L&
 
 The discretized system for all grid points is then $[L^*]_{jk}u_k=-r^*_j$, and multiplying by $[L^*]^{-1}$ gives all the $u_k$.
 
+![The grid across the gap and the matrix L star](../figures/relaxation-grid-and-matrix.svg)
+
+*Figure: Left: the grid across the gap, with the 3-point stencil centered on $u_j$. Right: the nonzero entries of $[L^*]$ for $N=8$ (the interior rows are the $D_2$ stencil $[1,-2,1]$). The first and last rows are the boundary-condition rows, with a single entry on the diagonal.*
+
+
 ## Review: solving a linear system
 
 $$\begin{aligned}a+b&=35\\2a+4b&=94\end{aligned}\qquad A=\begin{bmatrix}1&1\\2&4\end{bmatrix},\;X=\begin{bmatrix}a\\b\end{bmatrix},\;B=\begin{bmatrix}35\\94\end{bmatrix},\qquad AX=B\;\Rightarrow\;X=A^{-1}B.$$

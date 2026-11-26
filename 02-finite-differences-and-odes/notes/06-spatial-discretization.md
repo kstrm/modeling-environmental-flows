@@ -24,6 +24,11 @@ $$x_i=i\,\Delta x,\quad i=0,\ldots,N,\qquad\Delta x=\frac LN,$$
 
 giving $N+1$ grid points (the end points carry the boundary conditions; the rest are the interior).
 
+![A one-dimensional grid with boundary and interior points](../figures/domain-grid.svg)
+
+*Figure: The grid. The end points $x_0$ and $x_N$ are boundary points where the boundary conditions are applied; the $N-1$ interior points are the unknowns.*
+
+
 ## Taylor series and three classic derivatives
 
 $$f(x_0+\Delta x)=f(x_0)+\Delta x\,f'(x_0)+\frac{\Delta x^2}{2!}f''(x_0)+O(\Delta x^3)\tag{1}$$
@@ -47,6 +52,10 @@ $$f'_j\approx\frac{f_j-f_{j-1}}{\Delta x}=f'_j-\tfrac12\Delta x\,f''_j+O(\Delta 
 $$f(x_0+\Delta x)-f(x_0-\Delta x)=2\Delta x\,f'(x_0)+O(\Delta x^3)\;\Rightarrow\;f'_j\approx\frac{f_{j+1}-f_{j-1}}{2\Delta x}=f'_j+\tfrac16\Delta x^2f'''_j+\cdots$$
 
 which is second-order accurate.
+
+![Forward, backward and central difference stencils on a curve](../figures/difference-stencils.svg)
+
+*Figure: Each difference estimates the derivative as the slope of a straight line through its stencil points (solid), to be compared with the true tangent (dashed). The step is exaggerated here. The central difference, which uses points on both sides, is much closer to the tangent than either one-sided difference.*
 
 In general, the order of accuracy is roughly the number of stencil points minus one. Near the boundaries, where a centered stencil is unavailable, one-sided differences (forward at the first point, backward at the last) are used.
 

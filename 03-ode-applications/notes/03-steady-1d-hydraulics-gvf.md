@@ -69,6 +69,11 @@ $$E_{i+1}=E_i+\Delta x\,(S_o-\bar S_f).$$
 
 The only difference is that it is *implicit*: $\bar S_f$ needs $h_{i+1}$, so an iteration is required.
 
+![Direct step versus standard step marching](../figures/gvf-marching.svg)
+
+*Figure: The two marching strategies for the water-surface profile. The direct step picks the next depth (energy) and solves for the distance, so the stations are unevenly spaced. The standard step fixes the stations and iterates for the depth at each one.*
+
+
 More generally, write $\dfrac{dh}{dx}=\dfrac{S_o-S_f}{1-Fr^2}$ and note that it is explicit if $S_f$ and $Fr$ are evaluated at $i$, and implicit if they also depend on $i+1$. For the homework, use the explicit form (RK4) of the $dh/dx$ equation.
 
 ## Check your understanding

@@ -84,6 +84,10 @@ $$-r\,u_{i-1}^{n+1}+(1+2r)\,u_i^{n+1}-r\,u_{i+1}^{n+1}=u_i^n.$$
 
 This is a *tridiagonal* system, which is cheap to solve ($O(N)$ work). It is unconditionally stable ($|G|\le1$ for any $r$) and first-order in time. **Crank–Nicolson** averages the explicit and implicit spatial terms, giving second-order accuracy in time, and is also unconditionally stable for diffusion.
 
+![The implicit stencil couples all new-level values into a tridiagonal system](../figures/implicit-system.svg)
+
+*Figure: An implicit (BTCS) step. Each equation involves three unknowns at $t_{n+1}$, and neighboring equations share unknowns, so the whole row must be solved at once. The resulting matrix is tridiagonal (with the two boundary rows), which a banded solver handles in $O(N)$ operations.*
+
 ```python
 import numpy as np
 from scipy.linalg import solve_banded

@@ -23,6 +23,11 @@ The exact solution is $u(x,t)=f(x-ct)$: the initial profile translates at speed 
 
 A grid in space and time: $x_i=i\,\Delta x$ and $t_n=n\,\Delta t$, with unknowns $u_{i,n}$ (or $u_i^n$).
 
+![The space-time computational domain for the advection equation](../figures/space-time-domain.svg)
+
+*Figure: The computational domain. The initial condition fills the bottom row and the inflow boundary condition fills the left column. Every other value is an unknown that is computed by marching upward in time, one row after another.*
+
+
 ## Step 2: Discretize the governing equation
 
 Pick a scheme for space and time.
@@ -42,6 +47,11 @@ The stencil has 2 points on 2 time levels. Given the initial condition $u_{i,0}$
 $$\frac{\partial u}{\partial x}\approx\frac{u_{i+1,n}-u_{i-1,n}}{2\Delta x}+O(\Delta x^2)\;\Rightarrow\;u_{i,n+1}=u_{i,n}-\frac{c\,\Delta t}{2\Delta x}\left(u_{i+1,n}-u_{i-1,n}\right).$$
 
 The stencil has 3 points on 2 time levels.
+
+![Stencils of FTBS and FTCS](../figures/ftbs-ftcs-stencils.svg)
+
+*Figure: Stencils of the two schemes, with $\nu=c\,\Delta t/\Delta x$. Blue points are known values at $t_n$ and the orange point is the value being computed at $t_{n+1}$. FTBS uses the upstream neighbor only; FTCS uses both neighbors.*
+
 
 ## Numerical experiment
 

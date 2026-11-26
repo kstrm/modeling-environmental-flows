@@ -73,6 +73,11 @@ A predictor–corrector method that uses a backward difference in the predictor 
 
 The result is second-order accurate in space and time and captures shocks, which matters in fluvial hydraulics where flow can pass through critical depth.
 
+![Lax and MacCormack stencils](../figures/lax-maccormack-stencils.svg)
+
+*Figure: Left: the Lax stencil takes the average of the two neighbors at level $k$ (open circle: the point itself is not used). Right: MacCormack first predicts values at an intermediate level with a backward difference, then corrects with a forward difference on the predicted values, and averages the predictor and corrector.*
+
+
 :::{admonition} Hands-on: Dam-break flow with Lax and MacCormack
 :class: note
 Apply the Lax and MacCormack schemes to a dam break. Work through **[Dam-break flow with Lax and MacCormack](../completed/15_DamBreak_Lax_MacCormack.ipynb)** (the completed version, shown in this book), or [open the student version in Colab](<https://colab.research.google.com/github/kstrm/modeling-environmental-flows/blob/main/06-1d-unsteady-hydraulics/notebooks/15_DamBreak_Lax_MacCormack.ipynb>) and fill in the blanks yourself.
